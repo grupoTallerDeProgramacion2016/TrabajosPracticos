@@ -12,61 +12,82 @@ namespace Ej3
         private DateTime iFecha;
         private int iHoraInicio;
         private int iHoraFin;
-        private bool iGanada = false;
-        private EstadoPartida estado;
+        private EstadoPartida iEstado;
+        private string iPalabra;
+        private string iPalabraActual;
+        private string iErrores;
+        private int iIntentos;
 
-        public Partida(string pJugador, string pPalabra)
+
+        public Partida(string pJugador, string pPalabra, int pIntentos)
         {
             //Constructor: inicializa una partida con un nombre de jugadro y una palabra al azar asignada
             iJugador = pJugador;
             iFecha = DateTime.Today;
-            iHoraInicio = (DateTime.Now.Hour * 60) + DateTime.Now.Minute;
-            iGanada = false;
-            estado.Palabra = pPalabra;
+            iHoraInicio = DateTime.Now.Minute*60 + DateTime.Now.Second;
+            iPalabra = pPalabra;
+            iIntentos = pIntentos;
         }
 
         //Propiedades
-        public string Palabra { get { return this.iPalabra; } }
-        public int Errores { get { return this.iErrores; } }
+        public EstadoPartida Estado { get { return this.iEstado; } set { iEstado = value; } }
+
+        public string Palabra
+        {
+            get
+            {
+                return iPalabra;
+            }
+
+        }
+
         public string PalabraActual
         {
             get
             {
-                string cadena = "";
-                for (int i = 0; i < this.iPalabra.Length - 1; i++)
-                {
-                    if (this.iLetrasCorrectas.Contains(this.iPalabra[i]))
-                    {
-                        cadena += this.iPalabra[i];
-                    }
-                    else
-                    {
-                        cadena += "_";
-                    }
-                }
+                return iPalabraActual;
+            }
 
-                return cadena;
+            set
+            {
+                iPalabraActual = value;
             }
         }
 
-        public bool VerificarLetra(char pLetra)
+        public string Errores
         {
-            if (this.iPalabra.Contains(pLetra))//si la letra se encuentra en iPalabra devuelve true
+            get
             {
-                iLetrasCorrectas.Add(pLetra);
+                return iErrores;
+            }
 
-            }
-            else
+            set
             {
-                this.iErrores++;
-                iLetrasIncorrectas.Add(pLetra);
-                if (this.iErrores == JuegoAhorcado.iErroresMaximo)
-                {
-                    this.iGanada = false;
-                    return false;
-                }
+                iErrores = value;
             }
-            return true;
+        }
+
+        public int Intentos
+        {
+            get
+            {
+                return iIntentos;
+            }
+
+            set
+            {
+                iIntentos = value;
+            }
+        }
+
+        public string Duracion
+        {
+            get
+            {
+                int duracion = DateTime.Now.Minute * 60 + DateTime.Now.Second - iHoraInicio;
+                return duracion/60 + ":" + duracion%60;
+            }
+
         }
     }
 }

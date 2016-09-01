@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EstadoPartida.cs" />
+    <Compile Include="Palabra.cs" />
     <Compile Include="JuegoAhorcado.cs" />
     <Compile Include="Partida.cs" />
     <Compile Include="Program.cs" />
