@@ -10,7 +10,7 @@ namespace Ej3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ahorcado!!!");
+            Console.WriteLine("Ahorcado version lucio!!!");
             Console.Write("Nombre del jugador : ");
             string nombre = Console.ReadLine();
             JuegoAhorcado juego = new JuegoAhorcado();
