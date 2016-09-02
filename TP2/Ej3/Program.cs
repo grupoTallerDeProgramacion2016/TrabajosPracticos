@@ -31,7 +31,7 @@ namespace Ej3
             if (partida.Estado == EstadoPartida.Ganada)
             { Console.WriteLine("Enorabuena ha ganao el juego!"); }
             else
-            { Console.WriteLine("Sos un muerto, perdiste puto"); }
+            { Console.WriteLine("Sos un muerto, perdiste"); }
 
             Console.ReadLine();
         }

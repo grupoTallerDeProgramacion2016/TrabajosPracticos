@@ -9,7 +9,7 @@ namespace Ej3
     class JuegoAhorcado
     {
         private string[] iPalabras = { "lindo", "amarillo", "computadora", "electromecanica", "sistemas",
-                                        "petigay"};
+                                        "petigay", "rojo"};
         private List<Partida> iPartidas;
         private int iIntentos = 10;
         private Partida iPartidaActual;
