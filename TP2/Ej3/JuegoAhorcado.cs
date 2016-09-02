@@ -8,7 +8,8 @@ namespace Ej3
 {
     class JuegoAhorcado
     {
-        private string[] iPalabras = { "lindo", "amarillo", "computadora" };
+        private string[] iPalabras = { "lindo", "amarillo", "computadora", "electromecanica", "sistemas",
+                                        "petigay"};
         private List<Partida> iPartidas;
         private int iIntentos = 10;
         private Partida iPartidaActual;
@@ -31,7 +32,7 @@ namespace Ej3
             }
         }
 
-        public void IniciarPartida (string pJugador)
+        public Partida IniciarPartida (string pJugador)
         {
             Random ran = new Random();
             int sel = ran.Next(0, this.iPalabras.Length-1); 
@@ -39,6 +40,7 @@ namespace Ej3
             iPartidaActual = partida;
             iPartidaActual.Estado = EstadoPartida.EnCurso;
             iPalabra = new Palabra(this.iPalabras[sel]);
+            return iPartidaActual;
         }
 
         public Partida InsertarLetra(char letra)
