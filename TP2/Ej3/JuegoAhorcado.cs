@@ -9,7 +9,9 @@ namespace Ej3
     class JuegoAhorcado
     {
         private string[] iPalabras = { "lindo", "amarillo", "computadora", "electromecanica", "sistemas",
-                                        "petigay"};
+                                        "frasco", "termo", "mouse", "teclado", "monedero", "pokemon", "murcielago", "pizarron",
+                                        "cable", "monitor", "enchufe", "tapon", "mesada", "ventana", "portal", "automovil", "perro",
+                                        "gato", "armario", "carpeta", "papel", "yerba", "marcador", "banco"};
         private List<Partida> iPartidas;
         private int iIntentos = 10;
         private Partida iPartidaActual;
