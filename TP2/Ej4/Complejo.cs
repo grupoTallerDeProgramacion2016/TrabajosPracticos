@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ej4
 {
-    class Program
+    class Complejo
     {
-        static void Main(string[] args)
-        {
+        private double iReal;
+        private double iImaginario;
 
-        }
+
     }
 }
