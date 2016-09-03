@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej3
 {
@@ -34,10 +31,10 @@ namespace Ej3
             }
         }
 
-        public Partida IniciarPartida (string pJugador)
+        public Partida IniciarPartida(string pJugador)
         {
             Random ran = new Random();
-            int sel = ran.Next(0, this.iPalabras.Length-1); 
+            int sel = ran.Next(0, this.iPalabras.Length - 1);
             Partida partida = new Partida(pJugador, this.iPalabras[sel], this.iIntentos);
             iPartidaActual = partida;
             iPartidaActual.Estado = EstadoPartida.EnCurso;
@@ -66,7 +63,7 @@ namespace Ej3
 
                 this.Agregar(iLetrasIncorrectas, letra);
                 iPartidaActual.Errores = this.Errores;
-                
+
                 if (iPartidaActual.Intentos == 0)
                 {
                     iPartidaActual.Estado = EstadoPartida.Perdida;
@@ -91,6 +88,7 @@ namespace Ej3
             get
             {
                 string cadena = "- ";
+
                 foreach (char letra in this.iLetrasIncorrectas)
                 {
                     cadena += letra + " - ";

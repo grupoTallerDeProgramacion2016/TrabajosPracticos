@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej3
 {
@@ -24,7 +20,7 @@ namespace Ej3
             //Constructor: inicializa una partida con un nombre de jugadro y una palabra al azar asignada
             iJugador = pJugador;
             iFecha = DateTime.Today;
-            iHoraInicio = DateTime.Now.Minute*60 + DateTime.Now.Second;
+            iHoraInicio = DateTime.Now.Minute * 60 + DateTime.Now.Second;
             iPalabra = pPalabra;
             iIntentos = pIntentos;
         }
@@ -85,7 +81,7 @@ namespace Ej3
             get
             {
                 int duracion = DateTime.Now.Minute * 60 + DateTime.Now.Second - iHoraInicio;
-                return duracion/60 + ":" + duracion%60;
+                return duracion / 60 + ":" + duracion % 60;
             }
 
         }

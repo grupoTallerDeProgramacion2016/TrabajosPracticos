@@ -1,43 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej1
 {
     class Program
     {
-        
+
 
         static void Main(string[] args)
         {
-         
-            Console.WriteLine("1 - Circulo");
-            Console.WriteLine("2 - Triangulo");
-            Console.Write("Opcion: ");
-            int opc = Convert.ToInt16(Console.ReadLine());
+            int opc;
 
-            switch (opc) {
-                case 1:
-                    OpcionCirculo();
-                    break;
-                case 2:
-                    OpcionTriangulo();
-                    break;
-                default: Console.WriteLine("opcion invalida !");
-                    break;
-            }
-            Console.ReadKey();
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("1 - Circulo");
+                Console.WriteLine("2 - Triangulo");
+                Console.WriteLine("3 - Salir");
+                Console.Write("Opcion: ");
+
+                opc = Convert.ToInt16(Console.ReadLine());
+
+                switch (opc)
+                {
+                    case 1:
+                        OpcionCirculo();
+                        break;
+                    case 2:
+                        OpcionTriangulo();
+                        break;
+                    case 3:
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+                    default:
+                        Console.WriteLine("opcion invalida !");
+                        break;
+                }
+
+            } while (opc != 3);
+
 
 
 
         }
+        
         public static void OpcionCirculo()
         {
             Fachada fac = new Fachada();
 
             Console.Clear();
+            Console.WriteLine("CIRCULO");
+            Console.WriteLine();
             Console.Write("px: ");
             double px = Convert.ToDouble(Console.ReadLine());
             Console.Write("py: ");
@@ -53,9 +65,9 @@ namespace Ej1
 
             switch (opc)
             {
-                case 1:              
+                case 1:
                     double area = fac.CalcularAreaCirculo(px, py, radio);
-                    Console.WriteLine("El area del circulo es: "+ area);                
+                    Console.WriteLine("El area del circulo es: " + area);
                     break;
                 case 2:
                     double perimetro = fac.CalcularPerimetroCirculo(px, py, radio);
@@ -64,7 +76,7 @@ namespace Ej1
                 default:
                     Console.WriteLine("opcion invalida !");
                     break;
-                
+
             }
             Console.ReadKey();
         }

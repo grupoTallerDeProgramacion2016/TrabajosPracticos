@@ -1,9 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej1
 {
@@ -20,15 +16,15 @@ namespace Ej1
         }
         public Punto Punto1
         {
-            get { return this.iPunto1;}
+            get { return this.iPunto1; }
         }
         public Punto Punto2
         {
-            get { return this.iPunto2;}
+            get { return this.iPunto2; }
         }
         public Punto Punto3
         {
-            get { return this.iPunto3;}
+            get { return this.iPunto3; }
         }
         public double Area
         {
@@ -40,8 +36,10 @@ namespace Ej1
         }
         public double Perimetro
         {
-            get {              
-                return Lado1 + Lado2 + Lado3;}
+            get
+            {
+                return Lado1 + Lado2 + Lado3;
+            }
         }
         private double Lado1
         {
