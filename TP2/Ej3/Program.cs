@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej3
 {
@@ -10,35 +6,82 @@ namespace Ej3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ahorcado version lucio!!!");
-            Console.Write("Nombre del jugador : ");
+            int opc;
+
+            do
+            {
+                Console.WriteLine("Menu principal");
+                Console.WriteLine();
+                Console.WriteLine("1 - Nueva partida");
+                Console.WriteLine("2 - Mejores partidas");
+                Console.WriteLine("3 - Modificar intentos maximos");
+                Console.WriteLine("4 - Salir");
+                Console.WriteLine();
+                Console.WriteLine("opcion: ");
+                opc = Convert.ToInt16(Console.ReadLine());
+
+                switch (opc)
+                {
+                    case 1:
+                        Jugar();
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+            } while (opc != 4);
+
+
+        }
+
+        private static void Jugar()
+        {
+            Console.WriteLine("AHORCADO!");
+            Console.WriteLine();
+
+            Console.Write("Ingresa tu nombre : ");
             string nombre = Console.ReadLine();
+
             JuegoAhorcado juego = new JuegoAhorcado();
             Partida partida = juego.IniciarPartida(nombre);
-            //Console.WriteLine("la palabra es: " + juego.PartidaActual.Palabra);
 
-            ImprimirPantalla(partida.PalabraActual, partida.Errores, partida.Duracion, partida.Intentos);
-            char letra = Convert.ToChar(Console.ReadLine());
-            partida = juego.InsertarLetra(letra);
-
-            while (partida.Estado == EstadoPartida.EnCurso)
+            do
             {
                 Console.Clear();
                 ImprimirPantalla(partida.PalabraActual, partida.Errores, partida.Duracion, partida.Intentos);
-                letra = Convert.ToChar(Console.ReadLine());
+                char letra = Convert.ToChar(Console.ReadLine());
                 partida = juego.InsertarLetra(letra);
-            }
+
+            } while (partida.Estado == EstadoPartida.EnCurso);
+
             if (partida.Estado == EstadoPartida.Ganada)
-            { Console.WriteLine("Enorabuena ha ganao el juego!"); }
+            {
+                Console.WriteLine("Enorabuena ha ganao el juego!");
+            }
             else
-            { Console.WriteLine("Sos un muerto, perdiste"); }
+            {
+                Console.WriteLine("Sos un muerto, perdiste");
+            }
 
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Imprime la pantalla del juego
+        /// </summary>
+        /// <param name="pPalabraActual"> Palabra a adivinar en la que se ven las letras acertadas </param>
+        /// <param name="pErrores"> String que contiene las letras incorrectas </param>
+        /// <param name="pDuracion"> Duracion actual de la partida </param>
+        /// <param name="pIntentos"> Cantidad de intentos disponibles </param>
         public static void ImprimirPantalla(string pPalabraActual, string pErrores, string pDuracion, int pIntentos)
         {
-            Console.WriteLine("JUEGO AHORCADO");            
+            Console.WriteLine("JUEGO AHORCADO");
             Console.WriteLine();
             Console.WriteLine("  ------------------¬");
 
@@ -61,7 +104,7 @@ namespace Ej3
                     Console.WriteLine("    /|\\             |");
                     error -= 2;
                     break;
-                case 5: 
+                case 5:
                     Console.WriteLine("     0              |");
                     Console.WriteLine("    /|\\             |");
                     Console.WriteLine("    /               |");

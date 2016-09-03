@@ -14,10 +14,14 @@ namespace Ej3
         private string iErrores;
         private int iIntentos;
 
-
+        /// <summary>
+        /// Constructor de la clase partida
+        /// </summary>
+        /// <param name="pJugador"> Nombre del jugador </param>
+        /// <param name="pPalabra"> Palabra se debe adivinar </param>
+        /// <param name="pIntentos"> Numero de intentos maximos para esta partida </param>
         public Partida(string pJugador, string pPalabra, int pIntentos)
         {
-            //Constructor: inicializa una partida con un nombre de jugadro y una palabra al azar asignada
             iJugador = pJugador;
             iFecha = DateTime.Today;
             iHoraInicio = DateTime.Now.Minute * 60 + DateTime.Now.Second;
@@ -25,7 +29,6 @@ namespace Ej3
             iIntentos = pIntentos;
         }
 
-        //Propiedades
         public EstadoPartida Estado { get { return this.iEstado; } set { iEstado = value; } }
 
         public string Palabra

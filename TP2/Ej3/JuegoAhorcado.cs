@@ -16,8 +16,6 @@ namespace Ej3
         private List<char> iLetrasCorrectas = new List<char>();
         private List<char> iLetrasIncorrectas = new List<char>();
 
-        enum Estado { Ganada, Perdida, EnCurso };
-
         internal Partida PartidaActual
         {
             get
@@ -31,6 +29,29 @@ namespace Ej3
             }
         }
 
+        /// <summary>
+        /// Devuelve las letras incorrectas que han sido ingresadas
+        /// </summary>
+        public string Errores
+        {
+            get
+            {
+                string cadena = "- ";
+
+                foreach (char letra in this.iLetrasIncorrectas)
+                {
+                    cadena += letra + " - ";
+                }
+
+                return cadena;
+            }
+        }
+
+        /// <summary>
+        /// Inicializa una nueva partida y la guarda como partida actual en la clase
+        /// </summary>
+        /// <param name="pJugador"> Nombre del jugador </param>
+        /// <returns></returns>
         public Partida IniciarPartida(string pJugador)
         {
             Random ran = new Random();
@@ -42,6 +63,12 @@ namespace Ej3
             return iPartidaActual;
         }
 
+        /// <summary>
+        /// Toma como entrada una letra y se encarga de modificar el estado
+        /// del juego de acuerdo a si es correcta o no
+        /// </summary>
+        /// <param name="letra"> Letra que ingreso el jugador </param>
+        /// <returns>Devuelve un objeto partida que contiene los datos de la partida actual</returns>
         public Partida InsertarLetra(char letra)
         {
             if (iPalabra.VerificarLetra(letra))
@@ -72,30 +99,24 @@ namespace Ej3
             }
         }
 
+        /// <summary>
+        /// Agrega una letra a cualquiera de las listas y se encarga de 
+        /// verificar que no exista una letra igual ya ingresada
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="letra"></param>
         private void Agregar(List<char> lista, char letra)
         {
             if (!lista.Contains(letra))
             { lista.Add(letra); }
         }
 
+        /// <summary>
+        /// Guarda la partida actual en la lista iPartidas
+        /// </summary>
         public void GuardarPartida()
         {
             iPartidas.Add(iPartidaActual);
-        }
-
-        public string Errores
-        {
-            get
-            {
-                string cadena = "- ";
-
-                foreach (char letra in this.iLetrasIncorrectas)
-                {
-                    cadena += letra + " - ";
-                }
-
-                return cadena;
-            }
         }
 
     }
