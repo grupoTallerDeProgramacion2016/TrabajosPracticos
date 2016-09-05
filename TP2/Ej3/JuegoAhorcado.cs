@@ -9,10 +9,11 @@ namespace Ej3
                                         "frasco", "termo", "mouse", "teclado", "monedero", "pokemon", "murcielago", "pizarron",
                                         "cable", "monitor", "enchufe", "tapon", "mesada", "ventana", "portal", "automovil", "perro",
                                         "gato", "armario", "carpeta", "papel", "yerba", "marcador", "banco"};
-        private List<Partida> iPartidas;
+
         private int iIntentos = 10;
         private Partida iPartidaActual;
         private Palabra iPalabra;
+        private List<Partida> iPartidas = new List<Partida>();
         private List<char> iLetrasCorrectas = new List<char>();
         private List<char> iLetrasIncorrectas = new List<char>();
 
@@ -54,12 +55,23 @@ namespace Ej3
         /// <returns></returns>
         public Partida IniciarPartida(string pJugador)
         {
+            //selecciona una palabra al azar de las 30 que posee
             Random ran = new Random();
             int sel = ran.Next(0, this.iPalabras.Length - 1);
-            Partida partida = new Partida(pJugador, this.iPalabras[sel], this.iIntentos);
+            string palabra = this.iPalabras[sel];
+
+            //crea la partida y la guarda como partida actual
+            Partida partida = new Partida(pJugador, palabra, this.iIntentos);
             iPartidaActual = partida;
+
+            //crea una objeto Palabra con la seleccionada y selecciona una letra al azar como pista
+            iPalabra = new Palabra(palabra);
+            sel = ran.Next(0, palabra.Length - 1);
+            iLetrasCorrectas.Add(palabra[sel]);
+            iPartidaActual.PalabraActual = iPalabra.PalabraActual(iLetrasCorrectas);
+
+            //Marca la partida como EnCurso y la devuelve para que se puedan utilizar sus datos
             iPartidaActual.Estado = EstadoPartida.EnCurso;
-            iPalabra = new Palabra(this.iPalabras[sel]);
             return iPartidaActual;
         }
 
@@ -117,7 +129,10 @@ namespace Ej3
         public void GuardarPartida()
         {
             iPartidas.Add(iPartidaActual);
+            iPartidas.Sort();
+
         }
+
 
     }
 }

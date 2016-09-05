@@ -4,6 +4,7 @@ namespace Ej3
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             int opc;
@@ -42,6 +43,7 @@ namespace Ej3
 
         private static void Jugar()
         {
+            Console.Clear();
             Console.WriteLine("AHORCADO!");
             Console.WriteLine();
 
@@ -50,12 +52,31 @@ namespace Ej3
 
             JuegoAhorcado juego = new JuegoAhorcado();
             Partida partida = juego.IniciarPartida(nombre);
+            bool entradaCorrecta = false;
+            string entrada;
+            char letra = ' ';
 
             do
             {
                 Console.Clear();
-                ImprimirPantalla(partida.PalabraActual, partida.Errores, partida.Duracion, partida.Intentos);
-                char letra = Convert.ToChar(Console.ReadLine());
+                do
+                {
+                    ImprimirPantalla(partida.PalabraActual, partida.Errores, partida.Duracion, partida.Intentos);
+                    entrada = Console.ReadLine();
+                    if (entrada.Length == 1 && Char.IsLetter(entrada, 0))
+                    {
+                        letra = Convert.ToChar(entrada);
+                        entradaCorrecta = true;
+                    }
+                    else
+                    {
+                        entradaCorrecta = false;
+                        Console.Clear();
+                        Console.WriteLine("Solo puede ingresar una letra!!!!!");
+                        Console.ReadLine();
+                    }
+                } while (!entradaCorrecta);
+
                 partida = juego.InsertarLetra(letra);
 
             } while (partida.Estado == EstadoPartida.EnCurso);
@@ -69,6 +90,7 @@ namespace Ej3
                 Console.WriteLine("Sos un muerto, perdiste");
             }
 
+            juego.GuardarPartida();
             Console.ReadLine();
         }
 
