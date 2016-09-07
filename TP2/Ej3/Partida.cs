@@ -79,7 +79,16 @@ namespace Ej3
             }
         }
 
-        public string Duracion
+        public int Duracion
+        {
+            get
+            {
+                return DateTime.Now.Minute * 60 + DateTime.Now.Second - iHoraInicio;
+            }
+
+        }
+
+        public string DuracionStr
         {
             get
             {
@@ -87,6 +96,11 @@ namespace Ej3
                 return duracion / 60 + ":" + duracion % 60;
             }
 
+        }
+
+        public string NombreJugador
+        {
+            get { return this.iJugador; }
         }
     }
 }

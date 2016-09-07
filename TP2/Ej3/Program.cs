@@ -4,6 +4,7 @@ namespace Ej3
 {
     class Program
     {
+        private static JuegoAhorcado juego = new JuegoAhorcado();
 
         static void Main(string[] args)
         {
@@ -50,7 +51,6 @@ namespace Ej3
             Console.Write("Ingresa tu nombre : ");
             string nombre = Console.ReadLine();
 
-            JuegoAhorcado juego = new JuegoAhorcado();
             Partida partida = juego.IniciarPartida(nombre);
             bool entradaCorrecta = false;
             string entrada;
@@ -58,10 +58,10 @@ namespace Ej3
 
             do
             {
-                Console.Clear();
                 do
                 {
-                    ImprimirPantalla(partida.PalabraActual, partida.Errores, partida.Duracion, partida.Intentos);
+                    Console.Clear();
+                    ImprimirPantalla(partida);
                     entrada = Console.ReadLine();
                     if (entrada.Length == 1 && Char.IsLetter(entrada, 0))
                     {
@@ -81,84 +81,45 @@ namespace Ej3
 
             } while (partida.Estado == EstadoPartida.EnCurso);
 
-            if (partida.Estado == EstadoPartida.Ganada)
-            {
-                Console.WriteLine("Enorabuena ha ganao el juego!");
-            }
-            else
-            {
-                Console.WriteLine("Sos un muerto, perdiste");
-            }
-
+            ImprimirPantallaFinal(partida);
             juego.GuardarPartida();
-            Console.ReadLine();
         }
 
-        /// <summary>
-        /// Imprime la pantalla del juego
-        /// </summary>
-        /// <param name="pPalabraActual"> Palabra a adivinar en la que se ven las letras acertadas </param>
-        /// <param name="pErrores"> String que contiene las letras incorrectas </param>
-        /// <param name="pDuracion"> Duracion actual de la partida </param>
-        /// <param name="pIntentos"> Cantidad de intentos disponibles </param>
-        private static void ImprimirPantalla(string pPalabraActual, string pErrores, string pDuracion, int pIntentos)
+        private static void ImprimirPantalla(Partida pDatosPartida)
         {
             Console.WriteLine("JUEGO AHORCADO");
             Console.WriteLine();
-            Console.WriteLine("  ------------------¬");
-
-            int error = 10 - pIntentos;
-
-            switch (error)
-            {
-                case 1:
-                    Console.WriteLine("     0              |"); break;
-                case 2:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /               |"); break;
-                case 3:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /|              |");
-                    error -= 1;
-                    break;
-                case 4:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /|\\             |");
-                    error -= 2;
-                    break;
-                case 5:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /|\\             |");
-                    Console.WriteLine("    /               |");
-                    error -= 3;
-                    break;
-                case 6:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /|\\             |");
-                    Console.WriteLine("    / \\             |");
-                    error -= 4;
-                    break;
-                default:
-                    Console.WriteLine("     0              |");
-                    Console.WriteLine("    /|\\             |");
-                    Console.WriteLine("    / \\             |");
-                    error -= 4;
-                    break;
-            }
-
-            for (int i = error; i < 10; i++)
-            { Console.WriteLine("                    |"); }
-            Console.WriteLine("  ------------------|");
+            Console.WriteLine(pDatosPartida.PalabraActual);
             Console.WriteLine();
-            Console.WriteLine(pPalabraActual);
+            Console.WriteLine("Letras erradas: " + pDatosPartida.Errores);
             Console.WriteLine();
-            Console.WriteLine("Letras erradas: " + pErrores);
-            Console.WriteLine();
-            Console.WriteLine("Intentos: " + pIntentos);
-            Console.WriteLine();
-            Console.WriteLine("Tiempo: " + pDuracion);
+            Console.WriteLine("Intentos: " + pDatosPartida.Intentos);
             Console.WriteLine();
             Console.Write("Siguiente letra: ");
+        }
+
+        private static void ImprimirPantallaFinal(Partida pDatosPartida)
+        {
+            Console.Clear();
+            Console.WriteLine("FIN DEL JUEGO!");
+            Console.WriteLine();
+            if (pDatosPartida.Estado == EstadoPartida.Ganada)
+            {
+                Console.WriteLine(pDatosPartida.NombreJugador + " has ganado la partida");
+            }
+            else
+            {
+                Console.WriteLine(pDatosPartida.NombreJugador + " has perdido la partida");
+            }
+            Console.WriteLine();
+            Console.WriteLine("La palabra era: " + pDatosPartida.Palabra);
+            Console.WriteLine();
+            Console.WriteLine("Letras erradas: " + pDatosPartida.Errores);
+            Console.WriteLine();
+            Console.WriteLine("Intentos: " + pDatosPartida.Intentos);
+            Console.WriteLine();
+            Console.WriteLine("Tu tiempo: " + pDatosPartida.DuracionStr);
+            Console.ReadKey();
         }
     }
 }

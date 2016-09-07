@@ -100,7 +100,7 @@ namespace Ej2
                         }
                         catch (Exception e)
                         {
-                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se vuelve al menu de operaciones
                             MensajeError("ingrese un numero con formato double", e.ToString());
                             continue;
                         }
@@ -124,7 +124,7 @@ namespace Ej2
                         }
                         catch (Exception e)
                         {
-                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se vuelve al menu de operaciones
                             MensajeError("ingrese un numero con formato double", e.ToString());
                             continue;
                         }
@@ -155,7 +155,7 @@ namespace Ej2
                         }
                         catch (Exception e)
                         {
-                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se vuelve al menu de operaciones
                             MensajeError("ingrese un numero con formato double", e.ToString());
                             continue;
                         }

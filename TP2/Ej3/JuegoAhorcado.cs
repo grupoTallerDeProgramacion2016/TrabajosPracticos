@@ -129,10 +129,31 @@ namespace Ej3
         public void GuardarPartida()
         {
             iPartidas.Add(iPartidaActual);
-            iPartidas.Sort();
-
+            iPartidas.Sort(CompararTiempos);
+            if (iPartidas.Count > 5)
+            {
+                iPartidas.RemoveAt(iPartidas.Count - 1);
+            }
         }
 
+        private static int CompararTiempos(Partida x, Partida y)
+        {
+
+            bool retval = x.Duracion >= (y.Duracion);
+
+            if (retval)
+            {
+                // Si x es mayor o igual
+                return 1;
+            }
+            else
+            {
+                // Si y es mayor
+                return -1;
+            }
+
+
+        }
 
     }
 }

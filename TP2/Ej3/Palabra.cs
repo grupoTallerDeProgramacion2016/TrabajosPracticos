@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej3
 {
@@ -51,10 +48,10 @@ namespace Ej3
             bool completa = true;
             int contador = 0;
             // Se recorren todas las letras de la palabra y se revisa que cada una esté en el vector de jugadas
-            while (contador < this.iPalabra.Length - 1 && completa)
+            while (contador < this.iPalabra.Length && completa)
             {
                 // Si la letra no está en el vector de jugadas, entonces la palabra no está completa
-                if (! pLetrasCorrectas.Contains(this.iPalabra[contador]))
+                if (!pLetrasCorrectas.Contains(this.iPalabra[contador]))
                     completa = false;
                 contador++;
             }
