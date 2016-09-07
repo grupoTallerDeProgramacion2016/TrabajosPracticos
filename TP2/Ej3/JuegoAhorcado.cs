@@ -48,6 +48,17 @@ namespace Ej3
             }
         }
 
+        public List<Partida> MejoresCinco
+        {
+            get { return this.iPartidas; }
+        }
+
+        public int Intentos
+        {
+            get { return this.iIntentos; }
+            set { this.iIntentos = value; }
+        }
+
         /// <summary>
         /// Inicializa una nueva partida y la guarda como partida actual en la clase
         /// </summary>
@@ -55,6 +66,10 @@ namespace Ej3
         /// <returns></returns>
         public Partida IniciarPartida(string pJugador)
         {
+            //Reiniciamos las listas de letras
+            iLetrasCorrectas = new List<char>();
+            iLetrasIncorrectas = new List<char>();
+
             //selecciona una palabra al azar de las 30 que posee
             var ran = new Random();
             int sel = ran.Next(0, this.iPalabras.Length - 1);
@@ -90,6 +105,7 @@ namespace Ej3
                 if (iPalabra.EstaCompleta(iLetrasCorrectas))
                 {
                     iPartidaActual.Estado = EstadoPartida.Ganada;
+                    iPartidaActual.HoraFin = DateTime.Now.Minute * 60 + DateTime.Now.Second;
                 }
                 return iPartidaActual;
             }
@@ -106,6 +122,7 @@ namespace Ej3
                 if (iPartidaActual.Intentos == 0)
                 {
                     iPartidaActual.Estado = EstadoPartida.Perdida;
+                    iPartidaActual.HoraFin = DateTime.Now.Minute * 60 + DateTime.Now.Second;
                 }
                 return iPartidaActual;
             }
@@ -128,12 +145,16 @@ namespace Ej3
         /// </summary>
         public void GuardarPartida()
         {
-            iPartidas.Add(iPartidaActual);
-            iPartidas.Sort(CompararTiempos);
-            if (iPartidas.Count > 5)
+            if (this.iPartidaActual.Estado == EstadoPartida.Ganada)
             {
-                iPartidas.RemoveAt(iPartidas.Count - 1);
+                iPartidas.Add(iPartidaActual);
+                iPartidas.Sort(CompararTiempos);
+                if (iPartidas.Count > 5)
+                {
+                    iPartidas.RemoveAt(iPartidas.Count - 1);
+                }
             }
+
         }
 
         private static int CompararTiempos(Partida x, Partida y)
