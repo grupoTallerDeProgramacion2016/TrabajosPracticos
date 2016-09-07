@@ -56,12 +56,12 @@ namespace Ej3
         public Partida IniciarPartida(string pJugador)
         {
             //selecciona una palabra al azar de las 30 que posee
-            Random ran = new Random();
+            var ran = new Random();
             int sel = ran.Next(0, this.iPalabras.Length - 1);
-            string palabra = this.iPalabras[sel];
+            var palabra = this.iPalabras[sel];
 
             //crea la partida y la guarda como partida actual
-            Partida partida = new Partida(pJugador, palabra, this.iIntentos);
+            var partida = new Partida(pJugador, palabra, this.iIntentos);
             iPartidaActual = partida;
 
             //crea una objeto Palabra con la seleccionada y selecciona una letra al azar como pista

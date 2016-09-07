@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej1
 {
@@ -11,35 +7,40 @@ namespace Ej1
         private double iRadio;
         private Punto iCentro;
 
-        public Circulo (Punto pCentro, double pRadio)
+        public Circulo(Punto pCentro, double pRadio)
         {
             iRadio = pRadio;
             iCentro = pCentro;
         }
+
         public Circulo(double pX, double pY, double pRadio)
         {
             iCentro = new Punto(pX, pY);
             iRadio = pRadio;
         }
+
         public Punto Centro
         {
-            get {return this.iCentro;}
-         
+            get { return this.iCentro; }
+
         }
+
         public double Radio
         {
             get { return this.iRadio; }
-           
+
         }
+
         public double Area
         {
-            get { return Math.PI * Math.Pow(this.iRadio,2);}
-           
+            get { return Math.PI * Math.Pow(this.iRadio, 2); }
+
         }
+
         public double Perimetro
         {
-            get { return 2.0 * Math.PI * this.iRadio;}
-           
+            get { return 2.0 * Math.PI * this.iRadio; }
+
         }
     }
 }
