@@ -1,47 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej2
 {
     class Program
     {
-       static Cuentas clienteBanco = new Cuentas();
-       static Cuenta cuenta1 = new Cuenta(5832, 1000);
-       static Cuenta cuenta2 = new Cuenta(7666, 2500);
+        //se declara static para poder accederla desde el menu y realizar las pruebas
+        private static Cuentas cuentas = new Cuentas();
 
         static void Main(string[] args)
         {
-            clienteBanco.CuentaCajaAhorro = cuenta1;
-            clienteBanco.CuentaCorriente = cuenta2;
 
-            byte opcion;
+            byte opcion = 0;
 
             do
             {
                 Console.Clear();
 
                 Console.WriteLine("Banco Ballesteros");
+                Console.WriteLine();
                 Console.WriteLine("Seleccion Tipo de Caja: ");
                 Console.WriteLine("1: Cuenta corriente ");
                 Console.WriteLine("2: Caja de ahorro");
                 Console.WriteLine("3: Salir");
 
-                opcion = Convert.ToByte(Console.ReadLine());
+
+                //verifica que la opcion sea un byte y evita que el programa salga inesperadamente
+                try
+                {
+                    opcion = Convert.ToByte(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    MensajeError("ingrese un numero del 1 al 3", e.ToString());
+                    continue;
+                }
 
                 if (opcion == 1 || opcion == 2)
                 {
                     Menu(opcion);
-                    
+
                 }
                 else
                 {
-                    if (opcion != 3) { Console.WriteLine("Ingreso una opcion incorrecta"); }                                       
+                    if (opcion != 3) { Console.WriteLine("Ingreso una opcion incorrecta"); }
                 }
                 Console.ReadLine();
-               
+
             } while (opcion != 3);
 
             Console.WriteLine("Saliendo del cajero.....");
@@ -49,14 +54,14 @@ namespace Ej2
 
         }
 
-        public static void Menu(byte seleccionCuenta)
+        private static void Menu(byte seleccionCuenta)
         {
-            
-            
+
+            //se inicializan las variables para realizar la prueba
             Cajero cajero = new Cajero();
-            cajero.Cuentas = clienteBanco;
+            cajero.Cuentas = cuentas;
             cajero.SeleccionarCuenta(seleccionCuenta);
-            Console.Clear();
+
             byte opcion = 0;
             do
             {
@@ -67,36 +72,94 @@ namespace Ej2
                 Console.WriteLine("3: Transferir");
                 Console.WriteLine("4: Consultar saldo");
                 Console.WriteLine("5: Atras");
-                opcion = Convert.ToByte(Console.ReadLine());
 
+                //verifica que la opcion sea un byte y evita que el programa salga inesperadamente
+                try
+                {
+                    opcion = Convert.ToByte(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    MensajeError("ingrese un numero del 1 al 5", e.ToString());
+                    continue;
+                }
 
                 switch (opcion)
                 {
                     case 1:
+                        double saldo;
+
+                        Console.Clear();
+                        Console.WriteLine("DEPOSITO");
                         Console.WriteLine("Ingrese la suma: ");
-                        double saldo = Convert.ToDouble(Console.ReadLine());
+                        //verifica que la opcion sea un double y evita que el programa salga inesperadamente
+                        try
+                        {
+                            saldo = Convert.ToDouble(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            MensajeError("ingrese un numero con formato double", e.ToString());
+                            continue;
+                        }
+
                         cajero.AcreditarSaldo(saldo);
                         Console.WriteLine("Dinero acreditado");
                         Console.ReadKey();
                         break;
 
                     case 2:
+                        double retiro;
+
+                        Console.Clear();
+                        Console.WriteLine("RETIRO");
                         Console.WriteLine("Ingrese la suma: ");
-                        double retiro = Convert.ToDouble(Console.ReadLine());
+
+                        //verifica que la opcion sea un double y evita que el programa salga inesperadamente
+                        try
+                        {
+                            retiro = Convert.ToDouble(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            MensajeError("ingrese un numero con formato double", e.ToString());
+                            continue;
+                        }
+
                         if (cajero.DebitarSaldo(retiro))
                         {
                             Console.WriteLine("Retire su dinero");
-                        }else
+                        }
+                        else
                         {
                             Console.WriteLine("No tiene saldo disponible");
                         }
                         Console.ReadKey();
-                        
+
                         break;
 
                     case 3:
+                        double transferencia;
+
+                        Console.Clear();
+                        Console.WriteLine("TRANSFERENCIA");
                         Console.WriteLine("Ingrese la suma a transferir: ");
-                        double transferencia = Convert.ToDouble(Console.ReadLine());
+
+                        //verifica que la opcion sea un double y evita que el programa salga inesperadamente
+                        try
+                        {
+                            transferencia = Convert.ToDouble(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                            MensajeError("ingrese un numero con formato double", e.ToString());
+                            continue;
+                        }
+
                         if (cajero.Transferir(transferencia))
                         {
                             Console.WriteLine("Transferencia realizada con exito");
@@ -109,15 +172,34 @@ namespace Ej2
                         break;
 
                     case 4:
+                        Console.Clear();
+                        Console.WriteLine("CONSULTA DE SALDO");
                         Console.WriteLine("Su saldo es: " + cajero.ObtenerSaldo());
                         Console.ReadKey();
 
                         break;
-                    case 5:
-                        Console.WriteLine("Atras");
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Opcion incorrecta");
+                        Console.ReadKey();
                         break;
                 }
             } while (opcion != 5);
-          }
+        }
+
+        /// <summary>
+        /// Imprime un mensaje de error al usuario con una sugerencia y el codigo del error
+        /// </summary>
+        /// <param name="sugerencia"></param>
+        /// <param name="err"></param>
+        private static void MensajeError(string sugerencia, string error)
+        {
+            Console.Clear();
+            Console.WriteLine("Opcion ingresada incorrectamente");
+            Console.WriteLine(" * " + sugerencia);
+            Console.WriteLine();
+            Console.WriteLine("Mensaje de error: " + error);
+            Console.ReadLine();
+        }
     }
 }

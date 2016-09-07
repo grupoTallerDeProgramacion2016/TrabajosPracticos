@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej3
+﻿namespace Ej3
 {
     public enum EstadoPartida
     {
-         Ganada, Perdida, EnCurso 
+        Ganada, Perdida, EnCurso
     }
 }

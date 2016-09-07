@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej2
+﻿namespace Ej2
 {
     public class Cuenta
     {
@@ -23,22 +17,22 @@ namespace Ej2
             iAcuerdo = pAcuerdo;
         }
 
-        public double Saldo 
+        public double Saldo
         {
-            get { return this.iSaldo;}
+            get { return this.iSaldo; }
         }
 
         public double Acuerdo
         {
-            get { return this.iAcuerdo;}
+            get { return this.iAcuerdo; }
         }
 
-        public void AcreditarSaldo (double pSaldo)
+        public void AcreditarSaldo(double pSaldo)
         {
             iSaldo = iSaldo + pSaldo;
         }
 
-        public bool DebitarSaldo (double pSaldo)
+        public bool DebitarSaldo(double pSaldo)
         {
             if (iSaldo >= pSaldo & pSaldo <= iAcuerdo)
             {
@@ -48,7 +42,7 @@ namespace Ej2
             else
             {
                 return false;
-            } 
+            }
 
         }
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej2
+﻿namespace Ej2
 {
     class Cajero
     {
@@ -15,25 +9,42 @@ namespace Ej2
 
         public Cuentas Cuentas
         {
-            set { this.cuentas = value;}
+            set { this.cuentas = value; }
         }
 
-
-        public void AcreditarSaldo (double saldo)
+        /// <summary>
+        /// Deposita el monto ingresado en la cuenta
+        /// </summary>
+        /// <param name="saldo"> Dinero a depositar </param>
+        public void AcreditarSaldo(double saldo)
         {
             cuenta1.AcreditarSaldo(saldo);
         }
 
-        public bool DebitarSaldo (double debito)
+        /// <summary>
+        /// Extrae el dinero solicitado de la cuenta, si no es posible devuelve false
+        /// </summary>
+        /// <param name="debito"> Dinero a extraer </param>
+        /// <returns> Booleano que representa el exito de la extraccion </returns>
+        public bool DebitarSaldo(double debito)
         {
             return cuenta1.DebitarSaldo(debito);
         }
 
+        /// <summary>
+        /// Consulta el saldo disponible en la cuenta
+        /// </summary>
+        /// <returns> Saldo disponible </returns>
         public double ObtenerSaldo()
         {
             return cuenta1.Saldo;
         }
 
+        /// <summary>
+        /// Transfiere un monto desde la cuenta seleccionada hacia la otra cuenta del usuario
+        /// </summary>
+        /// <param name="monto"> Monto a transferir </param>
+        /// <returns> Booleano que representa el exito de la transaccion </returns>
         public bool Transferir(double monto)
         {
 
@@ -48,14 +59,21 @@ namespace Ej2
             }
         }
 
-        public void SeleccionarCuenta (byte seleccion)
+        /// <summary>
+        /// selecciona una de las cuentas disponibles para realizar las operaciones del cajero:
+        ///  *1: selecciona la cuenta corriente
+        ///  *2: selecciona la caja de ahorro
+        /// </summary>
+        /// <param name="seleccion"> Seleccion ingresada </param>
+        public void SeleccionarCuenta(byte seleccion)
         {
             cuentaSelec = seleccion;
             if (cuentaSelec == 1)
             {
                 cuenta1 = cuentas.CuentaCorriente;
                 cuenta2 = cuentas.CuentaCajaAhorro;
-            }else if (cuentaSelec == 2)
+            }
+            else if (cuentaSelec == 2)
             {
                 cuenta1 = cuentas.CuentaCajaAhorro;
                 cuenta2 = cuentas.CuentaCorriente;

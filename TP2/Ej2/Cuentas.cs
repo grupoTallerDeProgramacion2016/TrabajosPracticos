@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej2
+﻿namespace Ej2
 {
     class Cuentas
     {
@@ -14,20 +8,19 @@ namespace Ej2
 
         public Cuentas()
         {
-               
+            iCuentaCorriente = new Cuenta(0, 1000);
+            iCajaAhorro = new Cuenta(0, 1000);
         }
 
         public Cuenta CuentaCorriente
         {
             get { return this.iCuentaCorriente; }
-            set { this.iCuentaCorriente = value; }
         }
 
         public Cuenta CuentaCajaAhorro
         {
             get { return this.iCajaAhorro; }
-            set { this.iCajaAhorro = value; }
         }
-        
+
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej2
 {
@@ -11,15 +7,15 @@ namespace Ej2
         private String iNroDocumento;
         private String iNombre;
         private TipoDocumento iTipoDocumento;
-        
-        
-        public Cliente (TipoDocumento pTipoDocumento, String pNroDocumento, String pNombre)
+
+
+        public Cliente(TipoDocumento pTipoDocumento, String pNroDocumento, String pNombre)
         {
             iTipoDocumento = pTipoDocumento;
             iNombre = pNombre;
             iNroDocumento = pNroDocumento;
-           
-        } 
+
+        }
 
         public TipoDocumento TipoDocumento
         {

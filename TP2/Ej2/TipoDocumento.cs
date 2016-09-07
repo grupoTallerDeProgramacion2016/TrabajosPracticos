@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej2
+﻿namespace Ej2
 {
     public enum TipoDocumento
     {
-        DNI=0,
+        DNI = 0,
         CUIT,
         CUIL,
         LE,
         LC
-        
+
     }
 }

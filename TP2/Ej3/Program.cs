@@ -101,7 +101,7 @@ namespace Ej3
         /// <param name="pErrores"> String que contiene las letras incorrectas </param>
         /// <param name="pDuracion"> Duracion actual de la partida </param>
         /// <param name="pIntentos"> Cantidad de intentos disponibles </param>
-        public static void ImprimirPantalla(string pPalabraActual, string pErrores, string pDuracion, int pIntentos)
+        private static void ImprimirPantalla(string pPalabraActual, string pErrores, string pDuracion, int pIntentos)
         {
             Console.WriteLine("JUEGO AHORCADO");
             Console.WriteLine();

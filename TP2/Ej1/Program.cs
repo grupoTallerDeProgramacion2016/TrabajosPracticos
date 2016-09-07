@@ -8,7 +8,7 @@ namespace Ej1
 
         static void Main(string[] args)
         {
-            int opc;
+            int opc = 0;
 
             do
             {
@@ -19,7 +19,17 @@ namespace Ej1
                 Console.WriteLine("3 - Salir");
                 Console.Write("Opcion: ");
 
-                opc = Convert.ToInt16(Console.ReadLine());
+                try
+                {
+                    opc = Convert.ToInt16(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    MensajeError("ingrese un numero del 1 al 3", e.ToString());
+                    continue;
+                }
+
 
                 switch (opc)
                 {
@@ -33,18 +43,17 @@ namespace Ej1
                         Console.WriteLine("Saliendo del programa...");
                         break;
                     default:
-                        Console.WriteLine("opcion invalida !");
+                        Console.WriteLine("Valor ingresado incorrectamente");
+                        Console.WriteLine(" * Solo se permiten ingresar numeros del 1 al 3 como opcion");
                         break;
                 }
 
             } while (opc != 3);
 
 
-
-
         }
 
-        public static void OpcionCirculo()
+        private static void OpcionCirculo()
         {
             Fachada fac = new Fachada();
             double px;
@@ -73,23 +82,35 @@ namespace Ej1
                 catch (Exception e)
                 {
                     //si algun valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sean correctos
-                    Console.Clear();
-                    Console.WriteLine("Valor ingresado incorrectamente");
-                    Console.WriteLine(" * Solo se permiten numeros con punto flotante --> Ej: 12,3");
-                    Console.WriteLine();
-                    Console.WriteLine("Mensaje de error: " + e.ToString());
-                    Console.ReadLine();
+                    MensajeError("Solo se permiten numeros de punto flotante o enteros", e.ToString());
                     continue;
                 }
 
             } while (true);
 
 
-            //menu secundario
-            Console.WriteLine("1 - Area");
-            Console.WriteLine("2 - Perimetro");
-            Console.Write("Opcion: ");
-            int opc = Convert.ToInt16(Console.ReadLine());
+            //menu secundario            
+            byte opc = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("1 - Area");
+                    Console.WriteLine("2 - Perimetro");
+                    Console.Write("Opcion: ");
+                    opc = Convert.ToByte(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    MensajeError("Solo se permiten las opciones 1 o 2", e.ToString());
+                    continue;
+                }
+
+            } while (true);
 
             switch (opc)
             {
@@ -102,14 +123,15 @@ namespace Ej1
                     Console.WriteLine("El perimetro del circulo es: " + perimetro);
                     break;
                 default:
-                    Console.WriteLine("opcion invalida !");
+                    Console.WriteLine("Valor ingresado incorrectamente");
+                    Console.WriteLine(" * Solo se permiten ingresar numeros del 1 al 2 como opcion");
                     break;
 
             }
             Console.ReadKey();
         }
 
-        public static void OpcionTriangulo()
+        private static void OpcionTriangulo()
         {
             Fachada fac = new Fachada();
             double px1;
@@ -148,23 +170,35 @@ namespace Ej1
                 catch (Exception e)
                 {
                     //si algun valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sean correctos
-                    Console.Clear();
-                    Console.WriteLine("Valor ingresado incorrectamente");
-                    Console.WriteLine(" * Solo se permiten numeros con punto flotante --> Ej: 12,3");
-                    Console.WriteLine();
-                    Console.WriteLine("Mensaje de error: " + e.ToString());
-                    Console.ReadLine();
+                    MensajeError("Solo se permiten numeros de punto flotante o enteros", e.ToString());
                     continue;
 
                 }
 
             } while (true);
 
-            //menu secundario
-            Console.WriteLine("1 - Area");
-            Console.WriteLine("2 - Perimetro");
-            Console.Write("Opcion: ");
-            int opc = Convert.ToInt16(Console.ReadLine());
+            //menu secundario            
+            byte opc = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("1 - Area");
+                    Console.WriteLine("2 - Perimetro");
+                    Console.Write("Opcion: ");
+                    opc = Convert.ToByte(Console.ReadLine());
+                    break;
+                }
+                catch (Exception e)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    MensajeError("Solo se permiten las opciones 1 o 2", e.ToString());
+                    continue;
+                }
+
+            } while (true);
 
             switch (opc)
             {
@@ -177,11 +211,27 @@ namespace Ej1
                     Console.WriteLine("El perimetro del triangulo es: " + perimetro);
                     break;
                 default:
-                    Console.WriteLine("opcion invalida !");
+                    Console.WriteLine("Valor ingresado incorrectamente");
+                    Console.WriteLine(" * Solo se permiten ingresar numeros del 1 al 2 como opcion");
                     break;
 
             }
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Imprime un mensaje de error al usuario con una sugerencia y el codigo del error
+        /// </summary>
+        /// <param name="sugerencia"></param>
+        /// <param name="err"></param>
+        private static void MensajeError(string sugerencia, string error)
+        {
+            Console.Clear();
+            Console.WriteLine("Opcion ingresada incorrectamente");
+            Console.WriteLine(" * " + sugerencia);
+            Console.WriteLine();
+            Console.WriteLine("Mensaje de error: " + error);
+            Console.ReadLine();
         }
     }
 }
