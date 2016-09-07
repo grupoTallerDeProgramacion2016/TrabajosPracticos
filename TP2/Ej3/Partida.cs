@@ -29,7 +29,16 @@ namespace Ej3
             iIntentos = pIntentos;
         }
 
-        public EstadoPartida Estado { get { return this.iEstado; } set { iEstado = value; } }
+        public EstadoPartida Estado
+        {
+            get { return this.iEstado; }
+            set { iEstado = value; }
+        }
+
+        public int HoraFin
+        {
+            set { this.iHoraFin = value; }
+        }
 
         public string Palabra
         {
@@ -83,7 +92,7 @@ namespace Ej3
         {
             get
             {
-                return DateTime.Now.Minute * 60 + DateTime.Now.Second - iHoraInicio;
+                return iHoraFin - iHoraInicio;
             }
 
         }
@@ -92,8 +101,7 @@ namespace Ej3
         {
             get
             {
-                int duracion = DateTime.Now.Minute * 60 + DateTime.Now.Second - iHoraInicio;
-                return duracion / 60 + ":" + duracion % 60;
+                return this.Duracion / 60 + ":" + this.Duracion % 60;
             }
 
         }

@@ -12,6 +12,7 @@ namespace Ej3
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("Menu principal");
                 Console.WriteLine();
                 Console.WriteLine("1 - Nueva partida");
@@ -28,11 +29,13 @@ namespace Ej3
                         Jugar();
                         break;
                     case 2:
-
+                        MejoresPartidas();
                         break;
                     case 3:
+                        CambiarIntentos();
                         break;
                     case 4:
+                        Console.WriteLine("Adios!");
                         break;
                     default:
                         break;
@@ -40,6 +43,37 @@ namespace Ej3
             } while (opc != 4);
 
 
+        }
+
+        private static void CambiarIntentos()
+        {
+
+            Console.Clear();
+            Console.WriteLine("CAMBIAR DIFICULTAD");
+            Console.WriteLine();
+            Console.WriteLine("Cantidad de intentos actual: " + juego.Intentos);
+            Console.WriteLine();
+            Console.WriteLine("Nueva cantidad de intentos: ");
+            int intentos = Convert.ToInt16(Console.ReadLine());
+            juego.Intentos = intentos;
+            Console.WriteLine();
+            Console.WriteLine("Intentos guardados con exito");
+        }
+
+        private static void MejoresPartidas()
+        {
+            Console.Clear();
+
+            var lista = juego.MejoresCinco;
+            byte cont = 1;
+
+            Console.WriteLine("POSICION   " + " NOMBRE             " + "DURACION");
+            foreach (Partida partida in lista)
+            {
+                Console.WriteLine(cont + " -               \t" + partida.NombreJugador + "\t\t" + partida.DuracionStr);
+                cont++;
+            }
+            Console.ReadKey();
         }
 
         private static void Jugar()

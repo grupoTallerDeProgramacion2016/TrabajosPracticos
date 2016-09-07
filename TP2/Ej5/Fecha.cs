@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej5
 {
     class Fecha
     {
-        private static DateTime iFecha;
-        DateTime fecha = iFecha;
-        
-        public static void agregarDia(int pDia)
+        private int iDias;
+        private enum meses { Enero = 31, Febrero = 28, Marzo = 31, Abril = 30,  Mayo = 31, Junio = 30,
+                             Julio = 31}
+
+        public Fecha()
         {
-            iFecha.AddDays(pDia);
+            iDias = 0;
+        }
+
+        public void AgregarDia(int pDia)
+        {
+            iDias += pDia;
         }
 
         public static void agregarMes(int pMes)
@@ -48,12 +50,16 @@ namespace Ej5
 
         public bool añoBisiesto
         {
-            get { return DateTime.IsLeapYear(iFecha.Year) ; }
+            get { return DateTime.IsLeapYear(iFecha.Year); }
+        }
+
+        public static int compararFecha
+        {
+            get { return DateTime.Compare(iFecha.Date, iFecha.Date); }
         }
 
 
-        
-            
-        
+
+
     }
 }
