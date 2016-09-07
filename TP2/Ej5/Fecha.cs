@@ -51,6 +51,10 @@ namespace Ej5
             get { return DateTime.IsLeapYear(iFecha.Year) ; }
         }
 
+        public static int compararFecha
+        {
+            get { return DateTime.Compare(iFecha.Date, iFecha.Date); }
+        }
 
         
             
