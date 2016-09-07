@@ -45,7 +45,7 @@ namespace Ej4
         {
             get
             {
-                return 1.0;
+                return ((this.ArgumentoEnRadianes)*180)/Math.PI;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Ej4
         {
             get
             {
-                return this;
+                return new Complejo(this.iReal, this.iImaginario * -1);
             }
         }
 
@@ -85,6 +85,28 @@ namespace Ej4
             return iImaginario == pImaginario && iReal == pReal;
         }
 
-        
+        public Complejo Sumar(Complejo pOtroComplejo)
+        {
+            return new Complejo(this.iReal + pOtroComplejo.iReal, this.iImaginario + pOtroComplejo.iImaginario);
+        }
+
+        public Complejo Restar(Complejo pOtroComplejo)
+        {
+            return new Complejo(this.iReal - pOtroComplejo.iReal, this.iImaginario - pOtroComplejo.iImaginario);
+        }
+
+        public Complejo Multiplicar(Complejo pOtroComplejo)
+        {
+            return new Complejo((this.iReal * pOtroComplejo.iReal) - (this.iImaginario * pOtroComplejo.iImaginario), +
+            ((this.iReal * pOtroComplejo.iImaginario) + (this.iImaginario * pOtroComplejo.iReal)));
+        }
+
+        public Complejo Dividir(Complejo pOtroComplejo)
+        {
+            return new Complejo(((this.iReal * pOtroComplejo.iReal) + (this.iImaginario * pOtroComplejo.iImaginario))/ ((Math.Pow(pOtroComplejo.iReal,2))+ (Math.Pow(pOtroComplejo.iImaginario, 2)))
+                , +
+            ((this.iReal * pOtroComplejo.iImaginario) + (this.iImaginario * pOtroComplejo.iReal))/ ((Math.Pow(pOtroComplejo.iReal, 2)) + (Math.Pow(pOtroComplejo.iImaginario, 2))));
+        }
+
     }
 }
