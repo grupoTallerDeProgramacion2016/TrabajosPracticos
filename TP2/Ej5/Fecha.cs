@@ -4,9 +4,12 @@ namespace Ej5
 {
     class Fecha
     {
+
+        private const int anioInicial = 1970;
+        private int iAnio;
+        private int iMes;
         private int iDias;
-        private enum meses { Enero = 31, Febrero = 28, Marzo = 31, Abril = 30,  Mayo = 31, Junio = 30,
-                             Julio = 31}
+        private int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
         public Fecha()
         {
@@ -18,39 +21,34 @@ namespace Ej5
             iDias += pDia;
         }
 
-        public static void agregarMes(int pMes)
+        private void CalcularVariables(int pDias)
         {
-            iFecha.AddMonths(pMes);
+            int mes = 1;
+            int anio = anioInicial;
+
+            while (pDias >= 365)
+            {
+                pDias -= 365;
+                anio++;
+                if (AnioBisiesto(anio))
+                {
+                    pDias--;
+                }
+            }
+            bool sigue = true;
+            for (int i = 0; i < meses.Length && sigue; i++)
+            {
+                if (pDias <= meses[i])
+                {
+                    sigue = false;
+                }
+            }
+
         }
 
-        public static void agregarAño(int pAño)
+        public bool AnioBisiesto(int pAnio)
         {
-            iFecha.AddYears(pAño);
-        }
-
-        public int devolverDia
-        {
-            get { return iFecha.Day; }
-        }
-
-        public int devolverMes
-        {
-            get { return iFecha.Month; }
-        }
-
-        public int devolverAño
-        {
-            get { return iFecha.Year; }
-        }
-
-        public string devolverDiaDeLaSemana
-        {
-            get { return Convert.ToString(iFecha.DayOfWeek); }
-        }
-
-        public bool añoBisiesto
-        {
-            get { return DateTime.IsLeapYear(iFecha.Year); }
+            return (pAnio % 4 == 0 && (pAnio % 100 != 0 || pAnio % 400 == 0));
         }
 
         public static int compararFecha
@@ -58,8 +56,8 @@ namespace Ej5
             get { return DateTime.Compare(iFecha.Date, iFecha.Date); }
         }
 
-
-
-
     }
 }
+
+
+
