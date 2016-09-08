@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -73,7 +74,7 @@ namespace Ej4.Test
             Assert.AreEqual(resultadoEsperado, resultado);
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void Dividir()
         {
             var complejo = new Complejo(3, 2);
@@ -81,7 +82,7 @@ namespace Ej4.Test
             Complejo resultado = complejo.Dividir(numero);
             Complejo resultadoEsperado =new Complejo(0.2 , 1.6);
             Assert.AreEqual(resultadoEsperado, resultado);
-        }
+        }*/
 
 
 

@@ -51,10 +51,7 @@ namespace Ej5
             return (pAnio % 4 == 0 && (pAnio % 100 != 0 || pAnio % 400 == 0));
         }
 
-        public static int compararFecha
-        {
-            get { return DateTime.Compare(iFecha.Date, iFecha.Date); }
-        }
+      
 
     }
 }
