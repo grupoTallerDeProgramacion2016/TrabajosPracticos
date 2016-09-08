@@ -8,7 +8,8 @@ namespace Ej5
         private const int anioInicial = 1970;
         private int iAnio;
         private int iMes;
-        private int iDias;
+        private int iDia;
+        private int iDiasTotal;
         private int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
         public Fecha()
@@ -16,13 +17,23 @@ namespace Ej5
             iDias = 0;
         }
 
-        public void AgregarDia(int pDia)
+        public void AgregarDias(int pDia)
         {
             iDias += pDia;
+        }
+        
+        public void AgregarMeses(int pMes)
+        {
+            
+            if(meses[iMes] <= meses[iMes])
+            {
+                
+            }
         }
 
         private void CalcularVariables(int pDias)
         {
+            int dia = 0;
             int mes = 1;
             int anio = anioInicial;
 
@@ -38,9 +49,15 @@ namespace Ej5
             bool sigue = true;
             for (int i = 0; i < meses.Length && sigue; i++)
             {
-                if (pDias <= meses[i])
+                if (pDias > meses[i])
+                {
+                    pDias -= meses[i];    
+                    mes++;
+                }
+                else
                 {
                     sigue = false;
+                    dias = pDias;
                 }
             }
 
