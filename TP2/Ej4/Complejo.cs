@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej4
 {
-    class Complejo
+    public class Complejo
     {
         private double iReal;
         private double iImaginario;
@@ -37,7 +37,7 @@ namespace Ej4
         {
             get
             {
-                return Math.Atan2(this.iImaginario,this.iReal);
+                return  Math.Atan2(this.iImaginario,this.iReal);
             }
         }
 
@@ -105,8 +105,8 @@ namespace Ej4
         {
             return new Complejo(((this.iReal * pOtroComplejo.iReal) + (this.iImaginario * pOtroComplejo.iImaginario))/ ((Math.Pow(pOtroComplejo.iReal,2))+ (Math.Pow(pOtroComplejo.iImaginario, 2)))
                 , +
-            ((this.iReal * pOtroComplejo.iImaginario) + (this.iImaginario * pOtroComplejo.iReal))/ ((Math.Pow(pOtroComplejo.iReal, 2)) + (Math.Pow(pOtroComplejo.iImaginario, 2))));
+            ((this.iReal * pOtroComplejo.iImaginario) - (this.iImaginario * pOtroComplejo.iReal))/ ((Math.Pow(pOtroComplejo.iReal, 2)) + (Math.Pow(pOtroComplejo.iImaginario, 2))));
         }
 
-    }
+     }
 }
