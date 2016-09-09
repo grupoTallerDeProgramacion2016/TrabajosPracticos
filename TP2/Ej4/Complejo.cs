@@ -103,9 +103,8 @@ namespace Ej4
 
         public Complejo Dividir(Complejo pOtroComplejo)
         {
-            return new Complejo(((this.iReal * pOtroComplejo.iReal) + (this.iImaginario * pOtroComplejo.iImaginario))/ ((Math.Pow(pOtroComplejo.iReal,2))+ (Math.Pow(pOtroComplejo.iImaginario, 2)))
-                , +
-            ((this.iReal * pOtroComplejo.iImaginario) - (this.iImaginario * pOtroComplejo.iReal))/ ((Math.Pow(pOtroComplejo.iReal, 2)) + (Math.Pow(pOtroComplejo.iImaginario, 2))));
+            return new Complejo(((this.iReal * pOtroComplejo.iReal) + (this.iImaginario * pOtroComplejo.iImaginario))/ ((Math.Pow(pOtroComplejo.iReal,2))+ (Math.Pow(pOtroComplejo.iImaginario, 2))), 
+            ((this.iImaginario * pOtroComplejo.iReal)-(this.iReal * pOtroComplejo.iImaginario))/ ((Math.Pow(pOtroComplejo.iReal, 2)) + (Math.Pow(pOtroComplejo.iImaginario, 2))));
         }
 
      }
