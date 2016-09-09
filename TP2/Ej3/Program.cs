@@ -5,6 +5,7 @@ namespace Ej3
     class Program
     {
         private static JuegoAhorcado juego = new JuegoAhorcado();
+       
 
         static void Main(string[] args)
         {
@@ -21,8 +22,8 @@ namespace Ej3
                 Console.WriteLine("4 - Salir");
                 Console.WriteLine();
                 Console.WriteLine("opcion: ");
-                opc = Convert.ToInt16(Console.ReadLine());
-
+                opc = ObtenerEnteroUsuario();
+                
                 switch (opc)
                 {
                     case 1:
@@ -47,23 +48,36 @@ namespace Ej3
 
         private static void CambiarIntentos()
         {
-
+            
             Console.Clear();
             Console.WriteLine("CAMBIAR DIFICULTAD");
             Console.WriteLine();
             Console.WriteLine("Cantidad de intentos actual: " + juego.Intentos);
             Console.WriteLine();
-            Console.WriteLine("Nueva cantidad de intentos: ");
-            int intentos = Convert.ToInt16(Console.ReadLine());
-            juego.Intentos = intentos;
-            Console.WriteLine();
-            Console.WriteLine("Intentos guardados con exito");
+            Console.Write("Nueva cantidad de intentos: ");
+            int intentos = ObtenerEnteroUsuario();
+            if (intentos > 0)
+            {
+                juego.Intentos = intentos;
+                Console.WriteLine();
+                Console.WriteLine("Intentos guardados con exito");
+            }
+            else
+            {
+                Console.Write("El caracter ingrasado no es correcto!!");
+                Console.ReadKey();
+            }
+                   
+
+
         }
+
 
         private static void MejoresPartidas()
         {
             Console.Clear();
-
+  //            Ahorcado ahorcado = new Ahorcado();
+  //            ahorcado.MejoresCinco = ;
             var lista = juego.MejoresCinco;
             byte cont = 1;
 
@@ -85,6 +99,8 @@ namespace Ej3
             Console.Write("Ingresa tu nombre : ");
             string nombre = Console.ReadLine();
 
+  //          Ahorcado ahorcado = new Ahorcado()
+  //          ahorcado.IniciarPartida(nombre);
             Partida partida = juego.IniciarPartida(nombre);
             bool entradaCorrecta = false;
             string entrada;
@@ -111,6 +127,7 @@ namespace Ej3
                     }
                 } while (!entradaCorrecta);
 
+  //            ahorcado.InsertarLetra(letra)
                 partida = juego.InsertarLetra(letra);
 
             } while (partida.Estado == EstadoPartida.EnCurso);
@@ -154,6 +171,29 @@ namespace Ej3
             Console.WriteLine();
             Console.WriteLine("Tu tiempo: " + pDatosPartida.DuracionStr);
             Console.ReadKey();
+        }
+
+        private static int ObtenerEnteroUsuario()
+        {
+            bool incorrecto = true; 
+            int opc = 0;
+            do
+            {
+                try
+                {
+                    opc = Convert.ToInt16(Console.ReadLine());
+                    incorrecto = false;
+                }
+                catch (Exception)
+                {
+                    //si el valor ingresado es incorrecto se muestra un mensaje al usuario y se continua el ciclo hasta que sea correctos
+                    Console.WriteLine("La opcion ingresada no es correcta, vuelva a ingresar la opcion despues del ENTER");
+                    Console.ReadKey();
+                }
+                
+            } while (incorrecto);
+
+            return opc;
         }
     }
 }
