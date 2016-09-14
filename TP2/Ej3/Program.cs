@@ -4,9 +4,9 @@ namespace Ej3
 {
     class Program
     {
+        //se declara static para poder accederla desde el menu y realizar las pruebas
         private static JuegoAhorcado juego = new JuegoAhorcado();
        
-
         static void Main(string[] args)
         {
             int opc;
@@ -77,7 +77,7 @@ namespace Ej3
         {
             Console.Clear();
   //            Ahorcado ahorcado = new Ahorcado();
-  //            ahorcado.MejoresCinco = ;
+  //            ahorcado.MejoresCinco ;
             var lista = juego.MejoresCinco;
             byte cont = 1;
 
@@ -99,9 +99,8 @@ namespace Ej3
             Console.Write("Ingresa tu nombre : ");
             string nombre = Console.ReadLine();
 
-  //          Ahorcado ahorcado = new Ahorcado()
-  //          ahorcado.IniciarPartida(nombre);
-            Partida partida = juego.IniciarPartida(nombre);
+            Ahorcado ahorcado = new Ahorcado();
+            Partida partida = ahorcado.IniciarPartida(nombre);
             bool entradaCorrecta = false;
             string entrada;
             char letra = ' ';
@@ -127,8 +126,8 @@ namespace Ej3
                     }
                 } while (!entradaCorrecta);
 
-  //            ahorcado.InsertarLetra(letra)
-                partida = juego.InsertarLetra(letra);
+                
+                partida = ahorcado.InsertarLetra(letra); 
 
             } while (partida.Estado == EstadoPartida.EnCurso);
 
