@@ -37,6 +37,7 @@ namespace Ej3
                         break;
                     case 4:
                         Console.WriteLine("Adios!");
+                        Console.ReadKey();
                         break;
                     default:
                         break;
@@ -92,6 +93,7 @@ namespace Ej3
 
         private static void Jugar()
         {
+              Ahorcado ahorcado = new Ahorcado();
             Console.Clear();
             Console.WriteLine("AHORCADO!");
             Console.WriteLine();
@@ -99,7 +101,7 @@ namespace Ej3
             Console.Write("Ingresa tu nombre : ");
             string nombre = Console.ReadLine();
 
-            Ahorcado ahorcado = new Ahorcado();
+          
             Partida partida = ahorcado.IniciarPartida(nombre);
             bool entradaCorrecta = false;
             string entrada;

@@ -17,7 +17,7 @@ namespace Ej3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            throw new NotImplementedException();
+            return iCantidadMaximaCuotas >= pSolicitud.CantidadCuotas;
         }
     }
 }

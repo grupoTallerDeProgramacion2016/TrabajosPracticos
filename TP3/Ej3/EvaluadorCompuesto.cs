@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej3
 {
-    class EvaluadorCompuesto
+    class EvaluadorCompuesto : IEvaluador
     {
         private List<IEvaluador> iEvaluadores;
 
@@ -15,7 +15,18 @@ namespace Ej3
 
         }
 
-        public bool EsValida(SolicitudPrestamo pSolicitud) { return true; }
+        public bool EsValida(SolicitudPrestamo pSolicitud)
+        {
+            foreach (IEvaluador evaluador in iEvaluadores)
+            {
+                if  (evaluador.EsValida(pSolicitud)== false)
+                {
+                    return false;
+                }
+            }
+            return true;
+                
+        }
 
         public void AgregarEvaluador(IEvaluador pEvaluador)
         {

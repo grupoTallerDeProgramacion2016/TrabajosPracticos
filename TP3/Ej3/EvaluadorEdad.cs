@@ -18,7 +18,10 @@ namespace Ej3
         }
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            throw new NotImplementedException();
+            DateTime fecActual = new DateTime();
+            var fechaNac = pSolicitud.Cliente.FechaNacimiento;
+            int anos = fecActual.Year - fechaNac.Year;
+            return anos <= this.iEdadMaxima && anos >= this.iEdadMinima;
         }
     }
 }

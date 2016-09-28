@@ -17,7 +17,10 @@ namespace Ej3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            throw new NotImplementedException();
+            DateTime fecActual = new DateTime();
+            var fechaeEmpleo = pSolicitud.Cliente.Empleo.FechaIngreso;
+            int antiguedad = (fecActual.Month - fechaeEmpleo.Month) + (fecActual.Year - fechaeEmpleo.Year) * 12;
+            return antiguedad >= iAntiguedadMinima;
         }
     }
 }

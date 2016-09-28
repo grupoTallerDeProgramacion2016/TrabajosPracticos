@@ -51,6 +51,7 @@ namespace Ej3
         public List<Partida> MejoresCinco
         {
             get { return this.iPartidas; }
+           
         }
 
         public int Intentos

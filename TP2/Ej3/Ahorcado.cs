@@ -38,7 +38,7 @@ namespace Ej3
             return juego1.InsertarLetra(letra);
         }
 
-        public string NombreJugador
+      /*  public string NombreJugador
         {
             set { this.NombreJugador = value; }
         }
@@ -47,7 +47,7 @@ namespace Ej3
         {
             set { this.Intentos = value; }
         }
-
+        */
 
 
 

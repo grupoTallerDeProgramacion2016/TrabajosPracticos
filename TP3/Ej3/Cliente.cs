@@ -22,7 +22,7 @@ namespace Ej3
 
         public string Nombre { get { return this.iNombre;} }
 
-        public string Apellido { get; set; }
+        public string Apellido { get { return this.Apellido; } }
 
         public DateTime FechaNacimiento { get {return this.iFechaNacimiento;}}
 
