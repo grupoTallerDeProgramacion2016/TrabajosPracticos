@@ -60,9 +60,6 @@ namespace Ej3
             evalPremium.AgregarEvaluador(evalMontoPremium);
             evalPremium.AgregarEvaluador(evalCantPremium);
             iEvaluadoresPorCliente.Add(TipoCliente.ClientePlatinum, evalPremium);
-
-
-
         }
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
