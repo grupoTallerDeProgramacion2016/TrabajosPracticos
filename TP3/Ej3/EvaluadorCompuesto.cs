@@ -9,10 +9,11 @@ namespace Ej3
     class EvaluadorCompuesto : IEvaluador
     {
         private List<IEvaluador> iEvaluadores;
-
+        
+        
         public EvaluadorCompuesto()
         {
-
+            
         }
 
         public bool EsValida(SolicitudPrestamo pSolicitud)

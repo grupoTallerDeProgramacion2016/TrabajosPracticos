@@ -10,7 +10,18 @@ namespace Ej3
     {
         static void Main(string[] args)
         {
+            if (Isabel.EvaluarSolicitudPorCliente(15000.0, 25, 1))
+            {
+                Console.Write("Se le puede otorgar credito!!!");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.Write("No se le puede otorgar credito a esta persona!!!");
+                Console.ReadKey();
+            }
 
+            
         }
     }
 }

@@ -40,10 +40,12 @@ namespace Ej3
             GestorPrestamo gestor = new GestorPrestamo();
             Cliente mCliente = Cliente[pIdCliente]; 
             SolicitudPrestamo solicitud = new SolicitudPrestamo(mCliente, Monto, CantCuotas);
-            if (gestor.EsValida(solicitud)){
+            if (gestor.EsValida(solicitud))
+            {
                 return true;
                 
-            }else
+            }
+            else
             {
                 return false;
                 
