@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej3
 {
-    class Isabel
+    public class Isabel
     {
         static IDictionary<int, Cliente> Cliente;
         static Isabel()
@@ -36,7 +36,7 @@ namespace Ej3
         
                 
         public static bool EvaluarSolicitudPorCliente(double Monto, int CantCuotas, int pIdCliente)
-        {
+        {            
             GestorPrestamo gestor = new GestorPrestamo();
             Cliente mCliente = Cliente[pIdCliente]; 
             SolicitudPrestamo solicitud = new SolicitudPrestamo(mCliente, Monto, CantCuotas);

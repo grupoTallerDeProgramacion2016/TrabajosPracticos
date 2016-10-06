@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej3", "Ej3\Ej3.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej4", "Ej4\Ej4.csproj", "{A059BF36-06B9-4E8B-9594-EA0A4A44598F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej 3", "Ej 3\Ej 3.csproj", "{24BA89DF-F12B-4B98-8D7F-C0B5BFC434D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Ej3", "Ej 3\Test_Ej3.csproj", "{24BA89DF-F12B-4B98-8D7F-C0B5BFC434D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

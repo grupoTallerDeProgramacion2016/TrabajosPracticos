@@ -2,7 +2,7 @@
 
 namespace Ej3
 {
-    class Cliente
+    public class Cliente
     {
         private string iNombre;
         private string iApellido;

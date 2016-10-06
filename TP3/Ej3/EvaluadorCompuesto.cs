@@ -8,12 +8,13 @@ namespace Ej3
 {
     class EvaluadorCompuesto : IEvaluador
     {
+        
         private List<IEvaluador> iEvaluadores;
         
-        
+              
         public EvaluadorCompuesto()
         {
-            
+            this.iEvaluadores= new List<IEvaluador>();
         }
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
