@@ -8,5 +8,11 @@ namespace Ej4
 {
     class FachadaEncriptador
     {
+        FabricaEncriptadores fabrica = FabricaEncriptadores.Instancia;
+
+        public IEncriptador Encriptador(string pNombre)
+        {
+            return fabrica.GetEncriptador(pNombre);
+        }
     }
 }
