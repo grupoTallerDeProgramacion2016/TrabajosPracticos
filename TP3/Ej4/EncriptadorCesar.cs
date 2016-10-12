@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej4
 {
-    class EncriptadorCesar : Encriptador
+    public class EncriptadorCesar : Encriptador
     {
         private int iDesplazamiento;
 
@@ -17,12 +17,50 @@ namespace Ej4
 
         public override string Encriptar(string pCadena)
         {
-            throw new NotImplementedException();
+            string encriptada = "";
+            foreach (var letra in pCadena)
+            {
+                if (Char.IsLetter(letra))
+                {
+                    var ascii = Encoding.ASCII.GetBytes(letra.ToString())[0];
+                    var enc = ascii + iDesplazamiento;
+                    if ((enc > 90 & enc < 97) || enc > 122)
+                    {
+                        enc -= 26;
+                    }
+                    encriptada += (char) enc;
+                }
+                else
+                {
+                    encriptada += letra;
+                }
+
+            }
+            return encriptada;
         }
 
         public override string Desencriptar(string pCadena)
         {
-            throw new NotImplementedException();
+            string desencriptada = "";
+            foreach (var letra in pCadena)
+            {
+                if (Char.IsLetter(letra))
+                {
+                    var ascii = Encoding.ASCII.GetBytes(letra.ToString())[0];
+                    var enc = ascii - iDesplazamiento;
+                    if ((enc > 90 & enc < 97) || enc < 65)
+                    {
+                        enc += 26;
+                    }
+                    desencriptada += (char) enc;
+                }
+                else
+                {
+                    desencriptada += letra;
+                }
+
+            }
+            return desencriptada;
         }
     }
 }

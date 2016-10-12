@@ -15,12 +15,12 @@ namespace Ej4
 
         public override string Encriptar(string pCadena)
         {
-            throw new NotImplementedException();
+            return pCadena;
         }
 
         public override string Desencriptar(string pCadena)
         {
-            throw new NotImplementedException();
+            return pCadena;
         }
 
     }
