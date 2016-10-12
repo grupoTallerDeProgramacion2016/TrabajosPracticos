@@ -10,42 +10,125 @@ namespace Ej4.Test
         [TestMethod]
         public void Encriptar_normal()
         {
-            var encriptadorCesar = new EncriptadorCesar(2);
-            var resultado = encriptadorCesar.Encriptar("abcd");
-            Assert.AreEqual(resultado, "cdef");
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador cesar = fFachada.obtenerCesar();
+            string resultado = cesar.Encriptar("hola");
+            string resultadoEsperado = "cdef";
+            Assert.AreEqual(resultado, resultadoEsperado);
         }
 
         [TestMethod]
         public void Encriptar_VuelveAEmpezar()
         {
-            var encriptadorCesar = new EncriptadorCesar(4);
-            var resultado = encriptadorCesar.Encriptar("yzZW");
-            Assert.AreEqual(resultado, "cdDA");
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador cesar = fFachada.obtenerCesar();
+            string resultado = cesar.Encriptar("hola");
+            string resultadoEsperado = ("hola");
+            Assert.AreEqual(resultado, resultadoEsperado);
         }
 
         [TestMethod]
         public void Desencriptar_normal()
         {
-            var encriptadorCesar = new EncriptadorCesar(2);
-            var resultado = encriptadorCesar.Desencriptar("cdef");
-            Assert.AreEqual(resultado, "abcd");
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador cesar = fFachada.obtenerCesar();
+            string resultado = cesar.Desencriptar("Hola");
+            string resultadoEsperado = "abcd";
+            Assert.AreEqual(resultado, resultadoEsperado);
         }
 
         [TestMethod]
         public void Desencriptar_VuelveAEmpezar()
         {
-            var encriptadorCesar = new EncriptadorCesar(5);
-            var resultado = encriptadorCesar.Desencriptar("AbZc"); 
-            Assert.AreEqual(resultado, "VwUx");
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador cesar = fFachada.obtenerCesar();
+            string resultado = cesar.Desencriptar("AbZc");
+            string resultadoEsperado = "vwUx";
+            Assert.AreEqual(resultado, resultadoEsperado);
         }
 
         [TestMethod]
         public void EncriptarAes_normal()
         {
-            var encriptadorAES = new EncriptadorAES();
-            var resultado = encriptadorAES.Encriptar("cabezon se la come gay");
-            var des = encriptadorAES.Desencriptar(resultado);
-            Assert.AreEqual(resultado, "cdef");
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador aes = fFachada.obtenerAes();
+            string resultado = aes.Encriptar("hola");
+            string resultadoEsperado = "cdef";
+            Assert.AreEqual(resultado, resultadoEsperado);
         }
+
+        [TestMethod]
+        public void EncriptarAes_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador aes = fFachada.obtenerAes();
+            string resultado = aes.Encriptar("hola");
+            string resultadoEsperado = ("hola");
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void DesencriptarAes_normal()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador aes = fFachada.obtenerAes();
+            string resultado = aes.Desencriptar("Hola");
+            string resultadoEsperado = "abcd";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+
+        [TestMethod]
+        public void DesencriptarAes_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador aes = fFachada.obtenerAes();
+            string resultado = aes.Desencriptar("AbZc");
+            string resultadoEsperado = "vwUx";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        
+        [TestMethod]
+        public void EncriptarNulo_Normal()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador nulo = fFachada.obtenerNulo();
+            string resultado = nulo.Encriptar("hola");
+            string resultadoEsperado = "cdef";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void EncriptarNulo_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador nulo = fFachada.obtenerNulo();
+            string resultado = nulo.Encriptar("hola");
+            string resultadoEsperado = ("hola");
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void DesencriptarNulo_normal()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador nulo = fFachada.obtenerNulo();
+            string resultado = nulo.Desencriptar("Hola");
+            string resultadoEsperado = "abcd";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void DesencriptarNulo_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador nulo = fFachada.obtenerNulo();
+            string resultado = nulo.Desencriptar("AbZc");
+            string resultadoEsperado = "vwUx";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+
     }
 }
