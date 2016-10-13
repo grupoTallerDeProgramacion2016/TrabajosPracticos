@@ -12,8 +12,8 @@ namespace Ej4.Test
         {
             FachadaEncriptador fFachada = new FachadaEncriptador();
             IEncriptador cesar = fFachada.obtenerCesar();
-            string resultado = cesar.Encriptar("hola");
-            string resultadoEsperado = "cdef";
+            string resultado = cesar.Encriptar("abcd");
+            string resultadoEsperado = "defg";
             Assert.AreEqual(resultado, resultadoEsperado);
         }
 
