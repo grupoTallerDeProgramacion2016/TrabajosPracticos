@@ -129,6 +129,44 @@ namespace Ej4.Test
             Assert.AreEqual(resultado, resultadoEsperado);
         }
 
+        [TestMethod]
+        public void EncriptarInvertirCadena_Normal()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador invertirCadena = fFachada.obtenerInvertirCadena();
+            string resultado = invertirCadena.Encriptar("hola");
+            string resultadoEsperado = "aloh";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
 
+        [TestMethod]
+        public void EncriptarInvertircadena_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador invertirCadena = fFachada.obtenerInvertirCadena();
+            string resultado = invertirCadena.Encriptar("hola");
+            string resultadoEsperado = ("aloh");
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void DesencriptarInvertirCadena_normal()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador invertirCadena = fFachada.obtenerInvertirCadena();
+            string resultado = invertirCadena.Desencriptar("Hola");
+            string resultadoEsperado = "aloH";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
+
+        [TestMethod]
+        public void DesencriptarInvertirCadena_VuelveAEmpezar()
+        {
+            FachadaEncriptador fFachada = new FachadaEncriptador();
+            IEncriptador invertirCadena = fFachada.obtenerInvertirCadena();
+            string resultado = invertirCadena.Desencriptar("AbZc");
+            string resultadoEsperado = "cZbA";
+            Assert.AreEqual(resultado, resultadoEsperado);
+        }
     }
 }

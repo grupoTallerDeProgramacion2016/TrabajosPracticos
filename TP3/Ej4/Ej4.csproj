@@ -51,6 +51,7 @@
     <Compile Include="FabricaEncriptadores.cs" />
     <Compile Include="FachadaEncriptador.cs" />
     <Compile Include="IEncriptador.cs" />
+    <Compile Include="InvertirCadena.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

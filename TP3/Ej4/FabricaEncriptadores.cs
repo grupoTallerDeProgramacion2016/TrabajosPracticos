@@ -22,6 +22,8 @@ namespace Ej4
                 this.iEncriptadores.Add(encriptador.Nombre, encriptador);
                 encriptador = new EncriptadorCesar(3);
                 this.iEncriptadores.Add(encriptador.Nombre, encriptador);
+                encriptador = new InvertirCadena("");
+                this.iEncriptadores.Add(encriptador.Nombre, encriptador);
             }
 
             public static FabricaEncriptadores Instancia

@@ -25,6 +25,12 @@ namespace Ej4
             FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
             return fEncriptador.GetEncriptador("aes");
         }
+
+        public IEncriptador obtenerInvertirCadena()
+        {
+            FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
+            return fEncriptador.GetEncriptador("InvertirCadena");
+        }
         public IEncriptador Encriptador(string pNombre)
         {
             return fabrica.GetEncriptador(pNombre);
