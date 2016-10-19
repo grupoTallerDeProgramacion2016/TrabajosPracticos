@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace Ej1
 {
     class CapaDominio
     {
-
+        public void Ejecutar()
+        {
+            CapaPersistencia capaPer = new CapaPersistencia();
+            capaPer.Ejecutar();
+        }
     }
 }

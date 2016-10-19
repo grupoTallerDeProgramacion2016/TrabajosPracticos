@@ -4,10 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace Ej1
 {
     class CapaVista
     {
-        
+        public void Ejecutar()
+        {
+            try
+            {
+                CapaControlador capaCon = new CapaControlador();
+                capaCon.Ejecutar();
+            }
+            catch(CapaAplicacionException ex)
+            {
+
+                Console.WriteLine(ex.InnerException);
+                
+                Console.ReadKey();
+
+            }
+
+        }
     }
 }
