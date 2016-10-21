@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej1
+namespace Ej2
 {
-    class CapaControlador
+    class Program
     {
-
+        static void Main(string[] args)
+        {
+        }
     }
 }

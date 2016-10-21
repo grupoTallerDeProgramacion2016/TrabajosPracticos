@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej1
+namespace E2
 {
-    class CapaControlador
+/// <summary>
+///Fachada 
+/// </summary>
+    class Division
     {
 
     }
