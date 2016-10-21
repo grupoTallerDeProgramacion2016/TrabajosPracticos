@@ -7,8 +7,8 @@
     <ProjectGuid>{0654F13A-9431-455B-9E1D-52DE05AFD8B5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
-    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <RootNamespace>EJ1</RootNamespace>
+    <AssemblyName>EJ1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationException.cs" />
     <Compile Include="CapaAplicacion.cs" />
     <Compile Include="CapaAplicacionException.cs" />
     <Compile Include="CapaControlador.cs" />

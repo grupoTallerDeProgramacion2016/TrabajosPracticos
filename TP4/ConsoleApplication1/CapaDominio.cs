@@ -8,6 +8,10 @@ namespace Ej1
 {
     class CapaDominio
     {
-
+        public void Ejecutar()
+        {
+            CapaPersistencia capaPer = new CapaPersistencia();
+            capaPer.Ejecutar();
+        }
     }
 }

@@ -8,6 +8,10 @@ namespace Ej1
 {
     class CapaControlador
     {
-
+        public void Ejecutar()
+        {
+            CapaAplicacion capaApli = new CapaAplicacion();
+            capaApli.Ejecutar();
+        }
     }
 }

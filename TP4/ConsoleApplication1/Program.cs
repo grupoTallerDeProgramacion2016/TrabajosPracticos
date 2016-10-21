@@ -10,6 +10,10 @@ namespace Ej1
     {
         static void Main(string[] args)
         {
+
+            CapaVista cap = new CapaVista();
+            cap.Ejecutar();
+
         }
     }
 }
