@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E2
 {
-    class Matematica
+    public class Matematica
     {
         public double Dividir(int pDividendo,int pDivisor )
         {

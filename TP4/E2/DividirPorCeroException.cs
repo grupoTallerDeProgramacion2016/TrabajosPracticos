@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E2
 {
-    class DividirPorCeroException : Exception
+    public class DividirPorCeroException : Exception
     {
         public DividirPorCeroException(string pMensaje)
         {
@@ -21,7 +21,7 @@ namespace E2
             catch (DivideByZeroException ex)
             {
 
-                System.Console.Write("No es posible la division en 0", ex);
+                System.Console.Write("No es posible la division entre 0", ex);
             }
         }
     }

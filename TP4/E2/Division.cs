@@ -9,8 +9,28 @@ namespace E2
 /// <summary>
 ///Fachada 
 /// </summary>
-    class Division
+     class Division
     {
 
+        private Matematica matematica;
+
+        public double obtenerDivision(int x, int y)
+        {
+            
+            if (y != 0) 
+            {
+               return matematica.Dividir(x,y);
+            }
+            else
+            {
+                throw new DividirPorCeroException("Error, no se puede division entre 0");
+            }
+                       
+        }
+
+        
+
+       
     }
 }
+
