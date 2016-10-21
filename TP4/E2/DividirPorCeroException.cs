@@ -10,15 +10,18 @@ namespace E2
     {
         public DividirPorCeroException(string pMensaje)
         {
-            int var;
+            int x = 0;
+            int y = 0;
             try
             {
-               var = 0;
+                Matematica matematica = new Matematica();
+                matematica.Dividir(x,y);
+
             }
             catch (DivideByZeroException ex)
             {
 
-                System.Console.Write("No es posible la division por 0");
+                System.Console.Write("No es posible la division en 0", ex);
             }
         }
     }
