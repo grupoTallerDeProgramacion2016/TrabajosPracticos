@@ -29,20 +29,21 @@
 
         public void AcreditarSaldo(double pSaldo)
         {
+            if (pSaldo <= 0)
+            {
+                throw new ExcepcionCuenta("El saldo que desea depositar es nulo o negativo");
+            }
             iSaldo = iSaldo + pSaldo;
         }
 
-        public bool DebitarSaldo(double pSaldo)
+        public void DebitarSaldo(double pSaldo)
         {
-            if (iSaldo >= pSaldo & pSaldo <= iAcuerdo)
+            if (iSaldo <= pSaldo || pSaldo >= iAcuerdo)
             {
-                iSaldo -= pSaldo;
-                return true;
+                throw new ExcepcionCuenta("No se puede realizar esta transaccion :(");
+                
             }
-            else
-            {
-                return false;
-            }
+            iSaldo -= pSaldo;
 
         }
 

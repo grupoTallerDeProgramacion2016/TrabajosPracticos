@@ -105,8 +105,16 @@ namespace Ej2
                             continue;
                         }
 
-                        cajero.AcreditarSaldo(saldo);
-                        Console.WriteLine("Dinero acreditado");
+                        try
+                        {
+                            cajero.AcreditarSaldo(saldo);
+                            Console.WriteLine("Dinero acreditado");
+                        }
+                        catch (ExcepcionCuenta ex)
+                        { 
+                            Console.Clear();
+                            Console.WriteLine(ex.Message);
+                        }                       
                         Console.ReadKey();
                         break;
 
@@ -128,14 +136,14 @@ namespace Ej2
                             MensajeError("ingrese un numero con formato double", e.ToString());
                             continue;
                         }
-
-                        if (cajero.DebitarSaldo(retiro))
+                        try
                         {
-                            Console.WriteLine("Retire su dinero");
+                            cajero.DebitarSaldo(retiro);
                         }
-                        else
+                        catch (ExcepcionCuenta ex)
                         {
-                            Console.WriteLine("No tiene saldo disponible");
+                            Console.Clear();
+                            Console.WriteLine(ex.Message);
                         }
                         Console.ReadKey();
 
@@ -160,13 +168,15 @@ namespace Ej2
                             continue;
                         }
 
-                        if (cajero.Transferir(transferencia))
+                        try
                         {
-                            Console.WriteLine("Transferencia realizada con exito");
+                            cajero.Transferir(transferencia);
+                            Console.WriteLine("transferencia realizada con exito!!");
                         }
-                        else
+                        catch (ExcepcionCuenta ex)
                         {
-                            Console.WriteLine("No tiene saldo disponible");
+                            Console.Clear();
+                            Console.WriteLine(ex.Message);
                         }
                         Console.ReadKey();
                         break;

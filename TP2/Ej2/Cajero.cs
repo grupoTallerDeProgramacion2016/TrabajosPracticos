@@ -26,9 +26,9 @@
         /// </summary>
         /// <param name="debito"> Dinero a extraer </param>
         /// <returns> Booleano que representa el exito de la extraccion </returns>
-        public bool DebitarSaldo(double debito)
+        public void DebitarSaldo(double debito)
         {
-            return cuenta1.DebitarSaldo(debito);
+            cuenta1.DebitarSaldo(debito);
         }
 
         /// <summary>
@@ -45,18 +45,11 @@
         /// </summary>
         /// <param name="monto"> Monto a transferir </param>
         /// <returns> Booleano que representa el exito de la transaccion </returns>
-        public bool Transferir(double monto)
+        public void Transferir(double monto)
         {
 
-            if (cuenta1.DebitarSaldo(monto))
-            {
-                cuenta2.AcreditarSaldo(monto);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            cuenta1.DebitarSaldo(monto);
+            cuenta2.AcreditarSaldo(monto);
         }
 
         /// <summary>
