@@ -20,14 +20,15 @@ namespace Test_EJ2
         }
 
         [TestMethod]
+        [ExpectedException(typeof(System.DivideByZeroException))]
         public void ConExcepcion()
         {
-            double num1 = 0;
-            double num2 = 4;
+            DividirPorCeroException excep = new DividirPorCeroException();
+            double num1 = 4;
+            double num2 = 0;
             Division division = new Division();
             double resultado = division.obtenerDivision(num1, num2);
-            double resultadoEsperado = 0;
-            Assert.AreEqual(resultado, resultadoEsperado);
+           
 
         }
     }
