@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E2
+namespace Ej2
 {
     public class Matematica
     {
-        public double Dividir(int pDividendo,int pDivisor )
+        public static double Dividir(double pDividendo,double pDivisor )
         {
-            return pDivisor/pDividendo;
+            if (pDividendo != 0)
+            {
+                return pDivisor / pDividendo;
+            }
+            else
+            {
+                throw new DividirPorCeroException();
+            }
         }
     }
 }

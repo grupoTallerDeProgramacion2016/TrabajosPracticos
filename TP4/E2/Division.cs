@@ -4,31 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E2
+namespace Ej2
 {
 /// <summary>
 ///Fachada 
 /// </summary>
-     class Division
+    public class Division
     {
-
-        private Matematica matematica;
-
-        public double obtenerDivision(int x, int y)
+                
+        public double obtenerDivision(double x, double y)
         {
-            
-            if (y != 0) 
+            try
             {
-               return matematica.Dividir(x,y);
+                return Matematica.Dividir(x, y);
+                
             }
-            else
+            catch (Exception ex)
             {
-                throw new DividirPorCeroException("Error, no se puede division entre 0");
+
+                Console.WriteLine("Se produjo una excepción, en la división!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
+
+            return 0;
                        
         }
-
-        
+              
 
        
     }

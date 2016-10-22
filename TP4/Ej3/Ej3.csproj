@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A050B97-DE79-448A-B10C-BA5A1E7DB6E5}</ProjectGuid>
+    <ProjectGuid>{80DA3990-D79D-450C-BF1C-B576B40BA17F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ej3</RootNamespace>

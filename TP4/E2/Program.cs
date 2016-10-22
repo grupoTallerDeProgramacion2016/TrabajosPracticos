@@ -12,13 +12,17 @@ namespace Ej2
         static void Main(string[] args)
         {
             
-            int num1;
-            int num2;
+            double num1;
+            double num2;
             Console.WriteLine("Welcome!!!");
             Console.WriteLine("Ahora vamos a jugar con la división");
             Console.WriteLine("Ingrese los numeros que desea dividir, primero el divisor y luego el dividendo");
-            num1 = Convert.ToInt16(Console.ReadKey());
-            num2 = Convert.ToInt16(Console.ReadKey());
+            num1 = Convert.ToDouble(Console.ReadLine());
+            num2 = Convert.ToDouble(Console.ReadLine());
+            var division = new Division();
+            
+            Console.WriteLine("EL resultado es:" + division.obtenerDivision(num1, num2));
+            Console.ReadKey();           
 
         }
     }
