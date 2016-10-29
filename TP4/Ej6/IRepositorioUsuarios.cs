@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej5
+namespace Ej6
 {
     public interface IRepositorioUsuarios
     {

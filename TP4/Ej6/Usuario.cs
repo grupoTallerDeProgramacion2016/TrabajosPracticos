@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej5
+namespace Ej6
 {
     public class Usuario : IComparable<Usuario>
     {
@@ -19,6 +19,24 @@ namespace Ej5
         public int CompareTo(Usuario other)
         {
             return String.Compare(other.iNombreCompleto, iNombreCompleto);      
+        }
+
+        // override object.Equals
+        public override bool Equals(object obj)
+        {
+
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return iCodigo == ((Usuario)obj).Codigo;
+        }
+
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return Convert.ToInt32(iCodigo);
         }
     }
 }
