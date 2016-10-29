@@ -17,7 +17,8 @@ namespace Ej1
 
         public void Ejecutar()
         {
-            throw new ErrorPuntualException( "Se produjo un excepcion puntual en la capa persistencia" + " A las:" + DateTime.Now.ToString());
+            //Se lanza una excepcion en la capa de persistencia con un mensaje que contiene la hora
+            throw new ErrorPuntualException( "Se produjo un excepcion puntual en la capa persistencia" + " A las:" + ((string)DateTime.Now.ToString().Split(' ')[1]));
         }
     }
 }

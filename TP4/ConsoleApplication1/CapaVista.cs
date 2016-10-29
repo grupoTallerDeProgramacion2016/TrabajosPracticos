@@ -19,7 +19,6 @@ namespace Ej1
             {
 
                 Console.WriteLine(ex.InnerException);
-                
                 Console.ReadKey();
 
             }
