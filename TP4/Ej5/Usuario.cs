@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej5
 {
-    public class Usuario : IComparable<Usuario>
+    class Usuario
     {
         string iCodigo;
         string iNombreCompleto;
@@ -15,10 +15,5 @@ namespace Ej5
         public string Codigo { get {return this.iCodigo; } set {this.iCodigo = value; } }
         public string NombreCompleto { get { return this.iNombreCompleto; } set { this.iNombreCompleto = value; } }
         public string CorreoElectronico { get { return this.iCorreoElectronico; } set { this.iCorreoElectronico = value; } }
-
-        public int CompareTo(Usuario other)
-        {
-            return String.Compare(other.iNombreCompleto, iNombreCompleto);      
-        }
     }
 }

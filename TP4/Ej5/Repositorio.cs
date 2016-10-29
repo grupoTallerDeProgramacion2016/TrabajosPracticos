@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,9 +33,7 @@ namespace Ej5
 
         public List<Usuario> ObtenerOrdenadoPor(IComparer<Usuario> comparador)
         {
-            List<Usuario> lista = this.ObtenerTodos();
-            lista.Sort(comparador);
-            return lista;
+            throw new NotImplementedException();
         }
 
         public Usuario ObtenerPorCodigo(string pCodigo)
@@ -46,36 +43,7 @@ namespace Ej5
 
         public List<Usuario> ObtenerTodos()
         {
-            List<Usuario> lista = new List<Usuario>();
-            lista = usuarios.Values.ToList();
-            lista.Sort();
-            return lista;
+            return null;
         }
     }
-
-    public class OrdenCodigoAscendente : IComparer<Usuario>
-    {
-        public int Compare(Usuario x, Usuario y)
-        {
-            return x.Codigo.CompareTo(y.Codigo);
-        }
-    }
-
-    public class OrdenCodigoDescendente : IComparer<Usuario>
-    {
-        public int Compare(Usuario x, Usuario y)
-        {
-            return y.Codigo.CompareTo(x.Codigo);
-        }
-    }
-
-    public class OrdenCorreoElectronico : IComparer<Usuario>
-    {
-        public int Compare(Usuario x, Usuario y)
-        {
-            return x.CorreoElectronico.CompareTo(y.CorreoElectronico);
-        }
-    }
-
-    
 }
