@@ -12,7 +12,7 @@ namespace Test_EJ2
         {
             double num1 = 0;
             double num2 = 4;
-            Division division = new Division();
+            var division = new Division();
             double resultado = division.obtenerDivision(num1, num2);
             double resultadoEsperado = 0;
             Assert.AreEqual(resultado, resultadoEsperado);

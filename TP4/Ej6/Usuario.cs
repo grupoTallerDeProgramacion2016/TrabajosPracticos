@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej6
 {
@@ -18,10 +14,10 @@ namespace Ej6
 
         public int CompareTo(Usuario other)
         {
-            return String.Compare(other.iNombreCompleto, iNombreCompleto);      
+            return String.Compare(other.iNombreCompleto, iNombreCompleto);
         }
 
-        // override object.Equals
+        //Establece la igualdad por el codigo de los objetos
         public override bool Equals(object obj)
         {
 
@@ -33,7 +29,7 @@ namespace Ej6
             return iCodigo == ((Usuario)obj).Codigo;
         }
 
-        // override object.GetHashCode
+        //Obtiene el hashcode transformando el codigo de string a un int32
         public override int GetHashCode()
         {
             return Convert.ToInt32(iCodigo);

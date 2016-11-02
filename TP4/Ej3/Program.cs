@@ -15,13 +15,19 @@ namespace Ej3
             string path = Console.ReadLine();
             Console.WriteLine();
             StreamReader streamReader = null;
+
             try
             {
+                //Al instanciar el objecto stream reader se pueden producir las excepciones
                 streamReader = new StreamReader(path);
                 string contenido = streamReader.ReadToEnd();
                 Console.WriteLine(contenido);
                 Console.ReadKey();
+                //Alternativa 2
+                //streamReader.close();
             }
+
+            //Realizamos el catch para cada los tipos de excepcion que se piden capturar 
             catch (ArgumentNullException)
             {
                 Console.WriteLine("Upss! Se ha producido un error al intentar abrir el archivo :'(");
@@ -37,6 +43,7 @@ namespace Ej3
                 Console.WriteLine("Upss! Se ha producido un error al intentar abrir el archivo :'(");
                 Console.WriteLine("No se encuentra ningun archivo en la ruta especificada");
             }
+            //Si utilizamos la alternativa 2 no incluimos el bloque finally
             finally
             {
                 if (streamReader != null)

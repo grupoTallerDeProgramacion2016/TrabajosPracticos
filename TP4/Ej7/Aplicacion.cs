@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Ej7
 {
@@ -11,7 +7,28 @@ namespace Ej7
     /// </summary>
     class Aplicacion
     {
+        IList<Calendario> iCalendarios;
 
+        public Aplicacion()
+        {
+            iCalendarios = new List<Calendario>();
+        }
+
+        public void AgregarCalendario(Calendario pCalendario)
+        {
+            iCalendarios.Add(pCalendario);
+        }
+
+        public void ModificarCalendario(Calendario pCalendario)
+        {
+            iCalendarios.Remove(pCalendario);
+            iCalendarios.Add(pCalendario);
+        }
+
+        public void EliminarCalendario(Calendario pCalendario)
+        {
+            iCalendarios.Remove(pCalendario);
+        }
 
     }
 }

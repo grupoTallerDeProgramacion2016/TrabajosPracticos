@@ -114,10 +114,11 @@ namespace Ej4
                             cajero.AcreditarSaldo(saldo);
                             Console.WriteLine("Dinero acreditado");
                         }
-                        catch (ExcepcionCuenta ex)
+                        catch (CuentaException ex)
                         {
                             Console.Clear();
                             Console.WriteLine(ex.Message);
+                            Console.WriteLine(ex.GetType());
                         }
                         Console.ReadKey();
                         break;
@@ -144,10 +145,11 @@ namespace Ej4
                         {
                             cajero.DebitarSaldo(retiro);
                         }
-                        catch (ExcepcionCuenta ex)
+                        catch (CuentaException ex)
                         {
                             Console.Clear();
                             Console.WriteLine(ex.Message);
+                            Console.WriteLine(ex.GetType());
                         }
                         Console.ReadKey();
 
@@ -177,10 +179,11 @@ namespace Ej4
                             cajero.Transferir(transferencia);
                             Console.WriteLine("transferencia realizada con exito!!");
                         }
-                        catch (ExcepcionCuenta ex)
+                        catch (CuentaException ex)
                         {
                             Console.Clear();
                             Console.WriteLine(ex.Message);
+                            Console.WriteLine(ex.GetType());
                         }
                         Console.ReadKey();
                         break;
@@ -191,6 +194,8 @@ namespace Ej4
                         Console.WriteLine("Su saldo es: " + cajero.ObtenerSaldo());
                         Console.ReadKey();
 
+                        break;
+                    case 5:
                         break;
                     default:
                         Console.Clear();

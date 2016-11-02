@@ -37,7 +37,7 @@ namespace Ej4
         {
             if (pSaldo <= 0)
             {
-                throw new ExcepcionSaldoNuloONegativo("El saldo que desea depositar es nulo o negativo");
+                throw new AcreditacionSaldoException("El saldo que desea depositar es nulo o negativo");
             }
             iSaldo = iSaldo + pSaldo;
         }
@@ -46,11 +46,11 @@ namespace Ej4
         {
             if (iSaldo <= pSaldo)
             {
+                throw new SaldoInsuficienteException("No posee saldo suficiente para realizar la extraccion");
             }
             if (pSaldo >= iAcuerdo)
             {
-                throw new ExcepcionCuenta("No se puede realizar esta transaccion :(");
-
+                throw new AcuerdoSuperadoException("El saldo que desea retirar supera el acuerdo de la cuenta");
             }
             iSaldo -= pSaldo;
 

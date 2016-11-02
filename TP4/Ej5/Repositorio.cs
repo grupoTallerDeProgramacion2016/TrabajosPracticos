@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej5
 {
-    class Repositorio : IRepositorioUsuarios
+    public class Repositorio : IRepositorioUsuarios
     {
 
         Dictionary<string, Usuario> usuarios;
 
         public Repositorio()
         {
-
+            usuarios = new Dictionary<string, Usuario>();
         }
 
         public void Actualizar(Usuario pUsuario)
@@ -33,7 +30,9 @@ namespace Ej5
 
         public List<Usuario> ObtenerOrdenadoPor(IComparer<Usuario> comparador)
         {
-            throw new NotImplementedException();
+            List<Usuario> lista = this.ObtenerTodos();
+            lista.Sort(comparador);
+            return lista;
         }
 
         public Usuario ObtenerPorCodigo(string pCodigo)
@@ -43,7 +42,43 @@ namespace Ej5
 
         public List<Usuario> ObtenerTodos()
         {
-            return null;
+            List<Usuario> lista = new List<Usuario>();
+            lista = usuarios.Values.ToList();
+            lista.Sort();
+            return lista;
+        }
+
+        /// <summary>
+        /// Comparador que ordena a los usuarios por codigo ascendente
+        /// </summary>
+        public class OrdenCodigoAscendente : IComparer<Usuario>
+        {
+            public int Compare(Usuario x, Usuario y)
+            {
+                return x.Codigo.CompareTo(y.Codigo);
+            }
+        }
+
+        /// <summary>
+        /// Comparador que ordena a los usarios por codigo descendente
+        /// </summary>
+        public class OrdenCodigoDescendente : IComparer<Usuario>
+        {
+            public int Compare(Usuario x, Usuario y)
+            {
+                return y.Codigo.CompareTo(x.Codigo);
+            }
+        }
+
+        /// <summary>
+        /// Comparador que ordena a los usuarios por correo electronico en orden ascendente
+        /// </summary>
+        public class OrdenCorreoElectronico : IComparer<Usuario>
+        {
+            public int Compare(Usuario x, Usuario y)
+            {
+                return x.CorreoElectronico.CompareTo(y.CorreoElectronico);
+            }
         }
     }
 }

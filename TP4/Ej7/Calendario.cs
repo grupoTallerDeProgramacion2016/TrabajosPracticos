@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej7
 {/// <summary>
@@ -14,7 +11,9 @@ namespace Ej7
         private DateTime iFecha;
         private string iHoraCreacion;
         IList<Evento> listaEvento = new List<Evento>();
-        
+        private int id;
+        static int iClave = 0;
+
         /// <summary>
         /// Constructor de calendario
         /// </summary>
@@ -26,6 +25,7 @@ namespace Ej7
             iTitulo = pTitulo;
             pFecha = DateTime.Now;
             pHoraCreacion = (DateTime.Now.ToString().Split(' ')[1]);
+            id = iClave++;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Ej7
         public IList<Evento> Eventos
         {
             get { return this.listaEvento; }
-          
+
         }
 
         /// <summary>
@@ -66,13 +66,24 @@ namespace Ej7
             listaEvento.Add(pEvento);
         }
 
-        
+        // override object.Equals
+        public override bool Equals(object obj)
+        {
 
-      
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
 
+            return id == ((Calendario)obj).id;
+        }
+
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return id;
+        }
 
     }
-
-
 }
 
