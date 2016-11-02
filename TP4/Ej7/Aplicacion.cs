@@ -5,11 +5,11 @@ namespace Ej7
     /// <summary>
     /// Clase que representa la lógica del ejercicio (facade)
     /// </summary>
-    class Aplicacion
+    public class Agenda
     {
-        IList<Calendario> iCalendarios;
+        List<Calendario> iCalendarios;
 
-        public Aplicacion()
+        public Agenda()
         {
             iCalendarios = new List<Calendario>();
         }
@@ -28,6 +28,11 @@ namespace Ej7
         public void EliminarCalendario(Calendario pCalendario)
         {
             iCalendarios.Remove(pCalendario);
+        }
+
+        public List<Calendario> ObtenerTodos()
+        {
+            return this.iCalendarios;
         }
 
     }

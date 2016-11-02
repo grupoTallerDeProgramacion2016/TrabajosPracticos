@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej7
 {/// <summary>
@@ -16,7 +12,7 @@ namespace Ej7
         private string iDuracion;
         private string iFrecuenciaRepeticion;
         private int id;
-        static int iClave= 0;
+        static int iClave = 0;
 
         /// <summary>
         /// Constructor del evento
@@ -33,15 +29,15 @@ namespace Ej7
             pHoraComienzo = (DateTime.Now.ToString().Split(' ')[1]);
             iDuracion = pDuracion;
             iFrecuenciaRepeticion = pFrecuenciaRepeticion;
-            id= Evento.iClave++;
-             
+            id = Evento.iClave++;
+
         }
 
 
         // override object.Equals
         public override bool Equals(object obj)
         {
-          
+
             if (obj == null || GetType() != obj.GetType())
             {
                 return false;
@@ -51,7 +47,7 @@ namespace Ej7
                 return ((Evento)obj).id == this.id;
             }
 
-           
+
         }
 
         // override object.GetHashCode

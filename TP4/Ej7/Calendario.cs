@@ -10,7 +10,7 @@ namespace Ej7
         private string iTitulo;
         private DateTime iFecha;
         private string iHoraCreacion;
-        IList<Evento> listaEvento = new List<Evento>();
+        List<Evento> iEventos = new List<Evento>();
         private int id;
         static int iClave = 0;
 
@@ -20,12 +20,12 @@ namespace Ej7
         /// <param name="pTitulo"></param>
         /// <param name="pFecha"></param>
         /// <param name="pHoraCreacion"></param>
-        public Calendario(string pTitulo, DateTime pFecha, string pHoraCreacion)
+        public Calendario(string pTitulo, DateTime pFecha)
         {
             iTitulo = pTitulo;
-            pFecha = DateTime.Now;
-            pHoraCreacion = (DateTime.Now.ToString().Split(' ')[1]);
-            id = iClave++;
+            iFecha = pFecha;
+            iHoraCreacion = (pFecha.ToString().Split(' ')[1]);
+            id = Calendario.iClave++;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Ej7
         /// <param name="pEvento"></param>
         public void agregarEvento(Evento pEvento)
         {
-            listaEvento.Add(pEvento);
+            iEventos.Add(pEvento);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Ej7
 
         public IList<Evento> Eventos
         {
-            get { return this.listaEvento; }
+            get { return this.iEventos; }
 
         }
 
@@ -51,9 +51,10 @@ namespace Ej7
         /// Eliminar evento del calendario
         /// </summary>
         /// <param name="pEvento"></param>
+        /// 
         public void eliminarEvento(Evento pEvento)
         {
-            listaEvento.Remove(pEvento);
+            iEventos.Remove(pEvento);
         }
 
         /// <summary>
@@ -62,8 +63,13 @@ namespace Ej7
         /// <param name="pEvento"></param>
         public void modificarEvento(Evento pEvento)
         {
-            listaEvento.Remove(pEvento);
-            listaEvento.Add(pEvento);
+            iEventos.Remove(pEvento);
+            iEventos.Add(pEvento);
+        }
+
+        public List<Evento> ObtenerTodos()
+        {
+            return iEventos;
         }
 
         // override object.Equals
