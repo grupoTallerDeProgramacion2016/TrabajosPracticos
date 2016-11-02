@@ -47,7 +47,7 @@ namespace Ej4
             if (iSaldo <= pSaldo)
             {
             }
-            if (pSaldo >= iAcuerdo)||)
+            if (pSaldo >= iAcuerdo)
             {
                 throw new ExcepcionCuenta("No se puede realizar esta transaccion :(");
 
