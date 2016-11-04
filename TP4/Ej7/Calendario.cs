@@ -28,6 +28,12 @@ namespace Ej7
             id = Calendario.iClave++;
         }
 
+        public string Titulo { get { return this.iTitulo; } set { this.iTitulo = value; } }
+
+        public DateTime FechaCreacion { get { return this.iFecha; } }
+
+        public int IdCalendario { get { return this.id; } }
+
         /// <summary>
         /// Agregar evento al calendario
         /// </summary>
@@ -35,16 +41,6 @@ namespace Ej7
         public void agregarEvento(Evento pEvento)
         {
             iEventos.Add(pEvento);
-        }
-
-        /// <summary>
-        /// Propiedad que devuelve los eventos de una lista de Eventos
-        /// </summary>
-
-        public IList<Evento> Eventos
-        {
-            get { return this.iEventos; }
-
         }
 
         /// <summary>

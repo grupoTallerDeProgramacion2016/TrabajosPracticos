@@ -8,11 +8,32 @@ namespace Ej7
     {
         private string iTitulo;
         private DateTime iFecha;
-        private string iHoraComienzo;
-        private string iDuracion;
-        private string iFrecuenciaRepeticion;
+        private int iDuracion;
+        private Frecuencia iFrecuenciaRepeticion;
         private int id;
         static int iClave = 0;
+
+        public enum Frecuencia
+        {
+            UnicaVez,
+            Semanal,
+            Mensual,
+            Anual
+        }
+
+        public DateTime Fecha { get { return this.iFecha; } set { this.Fecha = value; } }
+
+        public string Titulo { get { return this.iTitulo; } set { this.iTitulo = value; } }
+
+        public int Duracion { get { return this.iDuracion; } set { this.iDuracion = value; } }
+
+        public Frecuencia FrecuenciaRepeticion
+        {
+            get { return this.iFrecuenciaRepeticion; }
+            set { this.iFrecuenciaRepeticion = value; }
+        }
+
+        public int IdEvento { get { return this.id; } }
 
         /// <summary>
         /// Constructor del evento
@@ -22,17 +43,15 @@ namespace Ej7
         /// <param name="pHoraComienzo"></param>
         /// <param name="pDuracion"></param>
         /// <param name="pFrecuenciaRepeticion"></param>
-        public Evento(string ptitulo, DateTime pFecha, string pHoraComienzo, string pDuracion, string pFrecuenciaRepeticion)
+        public Evento(string ptitulo, DateTime pFecha, int pDuracion, Frecuencia pFrecuenciaRepeticion)
         {
             iTitulo = ptitulo;
-            pFecha = DateTime.Now;
-            pHoraComienzo = (DateTime.Now.ToString().Split(' ')[1]);
+            iFecha = DateTime.Now;
             iDuracion = pDuracion;
             iFrecuenciaRepeticion = pFrecuenciaRepeticion;
             id = Evento.iClave++;
 
         }
-
 
         // override object.Equals
         public override bool Equals(object obj)
