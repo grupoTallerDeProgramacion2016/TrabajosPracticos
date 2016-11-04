@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Ej2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ej2;
 
 namespace Test_EJ2
 {
@@ -16,19 +15,27 @@ namespace Test_EJ2
             double resultado = division.obtenerDivision(num1, num2);
             double resultadoEsperado = 0;
             Assert.AreEqual(resultado, resultadoEsperado);
-                    
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.DivideByZeroException))]
+
         public void ConExcepcion()
         {
-            DividirPorCeroException excep = new DividirPorCeroException();
+
             double num1 = 4;
             double num2 = 0;
             Division division = new Division();
-            double resultado = division.obtenerDivision(num1, num2);
-           
+
+            try
+            {
+
+                double resultado = division.obtenerDivision(num1, num2);
+            }
+            catch (DividirPorCeroException)
+            {
+                Assert.IsTrue(true);
+            }
 
         }
     }

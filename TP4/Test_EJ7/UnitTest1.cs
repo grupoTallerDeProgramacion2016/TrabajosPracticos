@@ -42,7 +42,7 @@ namespace Test_EJ7
             calendario.Titulo = tituloEsperado;
             agenda.ModificarCalendario(calendario);
 
-            Assert.AreEqual(agenda.);
+            //Assert.AreEqual(agenda.ToStrin);
         }
 
         [TestMethod]

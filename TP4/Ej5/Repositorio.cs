@@ -44,7 +44,6 @@ namespace Ej5
         {
             List<Usuario> lista = new List<Usuario>();
             lista = usuarios.Values.ToList();
-            lista.Sort();
             return lista;
         }
 

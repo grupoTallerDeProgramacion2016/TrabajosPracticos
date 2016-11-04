@@ -55,7 +55,7 @@ namespace Test_EJ5
             repositorio.Actualizar(usuario2);
 
             Assert.AreNotEqual(usuario2, usuario);
-        
+
         }
 
         [TestMethod]
@@ -63,9 +63,9 @@ namespace Test_EJ5
         {
             var usuario = new Usuario();
             var usuario2 = new Usuario();
-            usuario.NombreCompleto = "lucio rodriguez";
+            usuario.NombreCompleto = "matias rodriguez";
             usuario.CorreoElectronico = "utn@frcu.com";
-            usuario.Codigo = "123";
+            usuario.Codigo = "113";
 
             usuario2.NombreCompleto = "lucio rodriguez";
             usuario2.CorreoElectronico = "utn@frcu.com";
@@ -76,24 +76,24 @@ namespace Test_EJ5
             repositorio.Agregar(usuario);
             repositorio.Agregar(usuario2);
 
-            Assert.IsNotNull(repositorio.ObtenerTodos());
+            Assert.AreEqual(repositorio.ObtenerTodos().Count, 2);
         }
 
         [TestMethod]
         public void ObtenerPorCodigo()
         {
             var usuario = new Usuario();
-           
+
             usuario.NombreCompleto = "lucio rodriguez";
             usuario.CorreoElectronico = "utn@frcu.com";
             usuario.Codigo = "123";
 
-           
+
 
             var repositorio = new Repositorio();
 
             repositorio.Agregar(usuario);
-           
+
 
             Assert.IsNotNull(repositorio.ObtenerPorCodigo("123"));
         }
@@ -104,15 +104,16 @@ namespace Test_EJ5
             var usuario = new Usuario();
             var usuario2 = new Usuario();
             var usuario3 = new Usuario();
+            var comparador = new Repositorio.OrdenCorreoElectronico();
 
             usuario.NombreCompleto = "lucio rodriguez";
-            usuario.CorreoElectronico = "utn@frcu.com";
+            usuario.CorreoElectronico = "btn@frcu.com";
             usuario.Codigo = "123";
             usuario2.NombreCompleto = "matias ballesteros";
-            usuario2.CorreoElectronico = "utn1@frcu.com";
+            usuario2.CorreoElectronico = "atn1@frcu.com";
             usuario2.Codigo = "124";
             usuario3.NombreCompleto = "lautaro zapata";
-            usuario3.CorreoElectronico = "utn2@frcu.com";
+            usuario3.CorreoElectronico = "ctn2@frcu.com";
             usuario3.Codigo = "125";
 
 
@@ -123,8 +124,9 @@ namespace Test_EJ5
             repositorio.Agregar(usuario2);
             repositorio.Agregar(usuario3);
 
-
-           
+            Assert.AreEqual(repositorio.ObtenerOrdenadoPor(comparador)[0], usuario2);
+            Assert.AreEqual(repositorio.ObtenerOrdenadoPor(comparador)[1], usuario);
+            Assert.AreEqual(repositorio.ObtenerOrdenadoPor(comparador)[2], usuario3);
         }
     }
 }
