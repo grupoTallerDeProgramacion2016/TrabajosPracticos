@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ej6
 {
-    class RepositorioIList : IRepositorioUsuarios
+   public class RepositorioIList : IRepositorioUsuarios
     {
 
         IList<Usuario> usuarios = new List<Usuario>();

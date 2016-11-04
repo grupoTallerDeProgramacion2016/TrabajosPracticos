@@ -1,7 +1,7 @@
-﻿using Ej5;
+﻿using Ej6;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test_EJ5
+namespace Test_EJ6
 {
     [TestClass]
     public class UnitTest1
@@ -10,7 +10,7 @@ namespace Test_EJ5
         public void Alta()
         {
             var usuario = new Usuario();
-            var repositorio = new Repositorio();
+            var repositorio = new RepositorioIList();
             usuario.NombreCompleto = "lucio rodriguez";
             usuario.CorreoElectronico = "utn@frcu.com";
             usuario.Codigo = "123";
@@ -27,7 +27,7 @@ namespace Test_EJ5
             usuario.CorreoElectronico = "utn@frcu.com";
             usuario.Codigo = "123";
 
-            var repositorio = new Repositorio();
+            var repositorio = new RepositorioIList();
 
             repositorio.Agregar(usuario);
 
@@ -49,13 +49,13 @@ namespace Test_EJ5
             usuario2.NombreCompleto = "lucio rodriguez";
             usuario.CorreoElectronico = "utn@frcu.com";
 
-            var repositorio = new Repositorio();
+            var repositorio = new RepositorioIList();
 
             repositorio.Agregar(usuario);
             repositorio.Actualizar(usuario2);
 
             Assert.AreNotEqual(usuario2, usuario);
-        
+          
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace Test_EJ5
             usuario2.CorreoElectronico = "utn@frcu.com";
             usuario2.Codigo = "123";
 
-            var repositorio = new Repositorio();
+            var repositorio = new RepositorioIList();
 
             repositorio.Agregar(usuario);
             repositorio.Agregar(usuario2);
@@ -83,17 +83,17 @@ namespace Test_EJ5
         public void ObtenerPorCodigo()
         {
             var usuario = new Usuario();
-           
+
             usuario.NombreCompleto = "lucio rodriguez";
             usuario.CorreoElectronico = "utn@frcu.com";
             usuario.Codigo = "123";
 
-           
 
-            var repositorio = new Repositorio();
+
+            var repositorio = new RepositorioIList();
 
             repositorio.Agregar(usuario);
-           
+
 
             Assert.IsNotNull(repositorio.ObtenerPorCodigo("123"));
         }
@@ -117,7 +117,7 @@ namespace Test_EJ5
 
 
 
-            var repositorio = new Repositorio();
+            var repositorio = new RepositorioIList();
 
             repositorio.Agregar(usuario);
             repositorio.Agregar(usuario2);
