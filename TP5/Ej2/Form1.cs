@@ -14,5 +14,10 @@ namespace Ej2
         {
             MessageBox.Show("El estado del " + radioButton1.Text + " es " + radioButton1.Checked + " El estado del " + radioButton2.Text + " es " + radioButton2.Checked + " El estado del " + radioButton3.Text + " es " + radioButton3.Checked + " El estado del " + checkBox1.Text + " es " + checkBox1.Checked + " El estado del " + radioButton2.Text + " es " + radioButton2.Checked);
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
