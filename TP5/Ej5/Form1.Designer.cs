@@ -40,11 +40,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pYCirculo = new System.Windows.Forms.TextBox();
             this.pXCirculo = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCirculo = new System.Windows.Forms.GroupBox();
             this.pRadio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTriangulo = new System.Windows.Forms.GroupBox();
             this.pZTriangulo2 = new System.Windows.Forms.TextBox();
             this.pZTriangulo1 = new System.Windows.Forms.TextBox();
             this.pYTriangulo2 = new System.Windows.Forms.TextBox();
@@ -53,10 +53,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxFigura = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxCirculo.SuspendLayout();
+            this.groupBoxTriangulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioCirculo
@@ -174,20 +174,20 @@
             this.pXCirculo.TabIndex = 2;
             this.pXCirculo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // groupBox2
+            // groupBoxCirculo
             // 
-            this.groupBox2.Controls.Add(this.pRadio);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.pYCirculo);
-            this.groupBox2.Controls.Add(this.pXCirculo);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(119, 37);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(135, 149);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Circulo";
+            this.groupBoxCirculo.Controls.Add(this.pRadio);
+            this.groupBoxCirculo.Controls.Add(this.label4);
+            this.groupBoxCirculo.Controls.Add(this.label3);
+            this.groupBoxCirculo.Controls.Add(this.pYCirculo);
+            this.groupBoxCirculo.Controls.Add(this.pXCirculo);
+            this.groupBoxCirculo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBoxCirculo.Location = new System.Drawing.Point(119, 37);
+            this.groupBoxCirculo.Name = "groupBoxCirculo";
+            this.groupBoxCirculo.Size = new System.Drawing.Size(135, 149);
+            this.groupBoxCirculo.TabIndex = 17;
+            this.groupBoxCirculo.TabStop = false;
+            this.groupBoxCirculo.Text = "Circulo";
             // 
             // pRadio
             // 
@@ -217,24 +217,24 @@
             this.label3.Text = "Centro";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // groupBox3
+            // groupBoxTriangulo
             // 
-            this.groupBox3.Controls.Add(this.pZTriangulo2);
-            this.groupBox3.Controls.Add(this.pZTriangulo1);
-            this.groupBox3.Controls.Add(this.pYTriangulo2);
-            this.groupBox3.Controls.Add(this.pYTriangulo1);
-            this.groupBox3.Controls.Add(this.pXTriangulo2);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.pXTriangulo1);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(260, 37);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(237, 162);
-            this.groupBox3.TabIndex = 18;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Triángulo";
+            this.groupBoxTriangulo.Controls.Add(this.pZTriangulo2);
+            this.groupBoxTriangulo.Controls.Add(this.pZTriangulo1);
+            this.groupBoxTriangulo.Controls.Add(this.pYTriangulo2);
+            this.groupBoxTriangulo.Controls.Add(this.pYTriangulo1);
+            this.groupBoxTriangulo.Controls.Add(this.pXTriangulo2);
+            this.groupBoxTriangulo.Controls.Add(this.label7);
+            this.groupBoxTriangulo.Controls.Add(this.label6);
+            this.groupBoxTriangulo.Controls.Add(this.label5);
+            this.groupBoxTriangulo.Controls.Add(this.pXTriangulo1);
+            this.groupBoxTriangulo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBoxTriangulo.Location = new System.Drawing.Point(260, 37);
+            this.groupBoxTriangulo.Name = "groupBoxTriangulo";
+            this.groupBoxTriangulo.Size = new System.Drawing.Size(237, 162);
+            this.groupBoxTriangulo.TabIndex = 18;
+            this.groupBoxTriangulo.TabStop = false;
+            this.groupBoxTriangulo.Text = "Triángulo";
             // 
             // pZTriangulo2
             // 
@@ -301,14 +301,15 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Punto 1";
             // 
-            // groupBox4
+            // groupBoxFigura
             // 
-            this.groupBox4.Location = new System.Drawing.Point(12, 37);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(101, 149);
-            this.groupBox4.TabIndex = 19;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBoxFigura.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBoxFigura.Location = new System.Drawing.Point(12, 37);
+            this.groupBoxFigura.Name = "groupBoxFigura";
+            this.groupBoxFigura.Size = new System.Drawing.Size(101, 149);
+            this.groupBoxFigura.TabIndex = 19;
+            this.groupBoxFigura.TabStop = false;
+            this.groupBoxFigura.Text = "Figura";
             // 
             // Form1
             // 
@@ -316,23 +317,23 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 355);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxTriangulo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.hacerAritmetica);
             this.Controls.Add(this.radioTriangulo);
             this.Controls.Add(this.radioCirculo);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBoxCirculo);
+            this.Controls.Add(this.groupBoxFigura);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxCirculo.ResumeLayout(false);
+            this.groupBoxCirculo.PerformLayout();
+            this.groupBoxTriangulo.ResumeLayout(false);
+            this.groupBoxTriangulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,8 +353,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox pYCirculo;
         private System.Windows.Forms.TextBox pXCirculo;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxCirculo;
+        private System.Windows.Forms.GroupBox groupBoxTriangulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
@@ -365,7 +366,7 @@
         private System.Windows.Forms.TextBox pYTriangulo2;
         private System.Windows.Forms.TextBox pYTriangulo1;
         private System.Windows.Forms.TextBox pXTriangulo2;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxFigura;
     }
 }
 
