@@ -29,7 +29,7 @@ namespace Ej6
         {
             if (txtDinero.Text == "")
             {
-                MessageBox.Show("Error: Campo Dinero vacio");
+                MessageBox.Show("Error: Campo Dinero vacio :)");
                 return false; 
             }
             return true;
