@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ej6
+{
+   public class CuentaException : Exception
+    {
+
+        /// <summary>
+        /// Esta excepcion representa al conjunto de excepciones que puede producir la cuenta
+        /// </summary>
+        /// <param name="pMensaje"></param>
+        public CuentaException(string pMensaje) : base(pMensaje)
+        {
+
+        }
+    }
+}
