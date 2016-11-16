@@ -23,7 +23,7 @@ namespace Ej8
         {
             
             Usuario usu = rep.ObtenerPorCodigo(txtCodigo.Text);
-            table.DataSource = usu;
+            table.DataSource = new List<Usuario>() { usu };
 
         }
 
