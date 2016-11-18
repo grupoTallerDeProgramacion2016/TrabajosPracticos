@@ -10,9 +10,19 @@ namespace Ej7
         private DateTime iFecha;
         private int iDuracion;
         private Frecuencia iFrecuenciaRepeticion;
+        private int iDiaSemanaRepeticion;
+        private int iDiaMesRepeticion;
+        private int iMesRepeticion;
         private int id;
+        /// <summary>
+        /// Utilizamos un atributo estatico para asignar los id que
+        /// identifican a los eventos
+        /// </summary>
         static int iClave = 0;
 
+        /// <summary>
+        /// Clase enumerada que para representar las posibles frecuencias
+        /// </summary>
         public enum Frecuencia
         {
             UnicaVez,
@@ -46,11 +56,54 @@ namespace Ej7
         public Evento(string ptitulo, DateTime pFecha, int pDuracion, Frecuencia pFrecuenciaRepeticion)
         {
             iTitulo = ptitulo;
-            iFecha = DateTime.Now;
+            iFecha = pFecha;
             iDuracion = pDuracion;
             iFrecuenciaRepeticion = pFrecuenciaRepeticion;
+            switch (iFrecuenciaRepeticion)
+            {
+                case Frecuencia.Semanal:
+                    this.iDiaSemanaRepeticion = (int)iFecha.DayOfWeek;
+                    break;
+                case Frecuencia.Mensual:
+                    this.iDiaMesRepeticion = (int)iFecha.Day;
+                    break;
+                case Frecuencia.Anual:
+                    this.iMesRepeticion = iFecha.Month;
+                    this.iDiaMesRepeticion = iFecha.Day;
+                    break;
+                default:
+                    break;
+            }
             id = Evento.iClave++;
 
+        }
+
+        /// <summary>
+        /// Metodo para saber si un evento ocurre un determinado dia de la semana (lunes, martes...)
+        /// </summary>
+        /// <param name="pDia"></param>
+        /// <returns></returns>
+        public Boolean OcurreEnElDiaSemana(int pDia)
+        {
+            if (this.FrecuenciaRepeticion == Frecuencia.Semanal)
+            {
+                return pDia == this.iDiaSemanaRepeticion;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Metodo para saber si un evento ocurre un dia del mes determinado (22, 23...)
+        /// </summary>
+        /// <param name="pDia"></param>
+        /// <returns></returns>
+        public Boolean OcurreEnElDiaMes(int pDia)
+        {
+            if (this.FrecuenciaRepeticion == Frecuencia.Mensual)
+            {
+                return pDia == this.iDiaMesRepeticion;
+            }
+            return false;
         }
 
         // override object.Equals

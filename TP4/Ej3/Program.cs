@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ej3
 {
@@ -23,7 +19,10 @@ namespace Ej3
                 string contenido = streamReader.ReadToEnd();
                 Console.WriteLine(contenido);
                 Console.ReadKey();
-                //Alternativa 2
+                //Alternativa 2: cerrar el Stream reader dentro del try, garantizano
+                //que el streamReader se abrio, si no llega a esta instruccion entonces
+                //no es necesario cerralo ya que el objeto sera null
+
                 //streamReader.close();
             }
 

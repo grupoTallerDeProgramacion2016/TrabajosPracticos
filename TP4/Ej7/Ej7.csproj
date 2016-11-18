@@ -45,7 +45,12 @@
   <ItemGroup>
     <Compile Include="Agenda.cs" />
     <Compile Include="Calendario.cs" />
+    <Compile Include="AgendaException.cs" />
+    <Compile Include="ErrorAlEliminarException.cs" />
+    <Compile Include="ErrorAlModificarException.cs" />
     <Compile Include="Evento.cs" />
+    <Compile Include="FechaIncorrectaException.cs" />
+    <Compile Include="IdNegativoException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -55,7 +55,7 @@ namespace Test_EJ6
             repositorio.Actualizar(usuario2);
 
             Assert.AreNotEqual(usuario2, usuario);
-          
+
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace Test_EJ6
             var usuario3 = new Usuario();
 
             usuario.NombreCompleto = "lucio rodriguez";
-            usuario.CorreoElectronico = "utn@frcu.com";
+            usuario.CorreoElectronico = "utn8@frcu.com";
             usuario.Codigo = "123";
             usuario2.NombreCompleto = "matias ballesteros";
             usuario2.CorreoElectronico = "utn1@frcu.com";
@@ -123,8 +123,42 @@ namespace Test_EJ6
             repositorio.Agregar(usuario2);
             repositorio.Agregar(usuario3);
 
+            var resultado = repositorio.ObtenerOrdenadoPor(new RepositorioIList.OrdenCorreoElectronico());
 
-           
+            Assert.AreEqual(resultado[0].Codigo, "124");
+            Assert.AreEqual(resultado[1].Codigo, "125");
+            Assert.AreEqual(resultado[2].Codigo, "123");
+        }
+
+        [TestMethod]
+        public void BuscarPorAproximacion()
+        {
+            var usuario = new Usuario();
+            var usuario2 = new Usuario();
+            var usuario3 = new Usuario();
+
+            usuario.NombreCompleto = "lucio rodriguez";
+            usuario.CorreoElectronico = "utn8@frcu.com";
+            usuario.Codigo = "123";
+            usuario2.NombreCompleto = "laura ballesteros";
+            usuario2.CorreoElectronico = "utn1@frcu.com";
+            usuario2.Codigo = "124";
+            usuario3.NombreCompleto = "lautaro zapata";
+            usuario3.CorreoElectronico = "utn2@frcu.com";
+            usuario3.Codigo = "125";
+
+
+
+            var repositorio = new RepositorioIList();
+
+            repositorio.Agregar(usuario);
+            repositorio.Agregar(usuario2);
+            repositorio.Agregar(usuario3);
+
+            var resultado = repositorio.BuscarPorAproximacion("lau");
+
+            CollectionAssert.Contains(resultado, usuario2);
+            CollectionAssert.Contains(resultado, usuario3);
         }
     }
 }

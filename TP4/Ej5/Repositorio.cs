@@ -13,21 +13,38 @@ namespace Ej5
             usuarios = new Dictionary<string, Usuario>();
         }
 
+        /// <summary>
+        /// Actualizar un usuario con otro que es pasado como parametro
+        /// </summary>
+        /// <param name="pUsuario"></param>
         public void Actualizar(Usuario pUsuario)
         {
             usuarios[pUsuario.Codigo] = pUsuario;
         }
 
+        /// <summary>
+        /// Agregar un objeto usuario al repositorio
+        /// </summary>
+        /// <param name="pUsuario"></param>
         public void Agregar(Usuario pUsuario)
         {
             usuarios[pUsuario.Codigo] = pUsuario;
         }
 
+        /// <summary>
+        /// Eliminar un usuario por su codigo
+        /// </summary>
+        /// <param name="pCodigo"></param>
         public void Eliminar(string pCodigo)
         {
             usuarios.Remove(pCodigo);
         }
 
+        /// <summary>
+        /// Obtener una lista de todos los usuarios ordenados por un comparador
+        /// </summary>
+        /// <param name="comparador"></param>
+        /// <returns></returns>
         public List<Usuario> ObtenerOrdenadoPor(IComparer<Usuario> comparador)
         {
             List<Usuario> lista = this.ObtenerTodos();
@@ -35,11 +52,20 @@ namespace Ej5
             return lista;
         }
 
+        /// <summary>
+        /// Obtiene un usuario por su codigo
+        /// </summary>
+        /// <param name="pCodigo"></param>
+        /// <returns></returns>
         public Usuario ObtenerPorCodigo(string pCodigo)
         {
             return usuarios[pCodigo];
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios. Por defecto estan ordenados por codigo
+        /// </summary>
+        /// <returns></returns>
         public List<Usuario> ObtenerTodos()
         {
             List<Usuario> lista = new List<Usuario>();

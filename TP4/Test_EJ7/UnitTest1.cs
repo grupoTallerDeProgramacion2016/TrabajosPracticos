@@ -42,7 +42,6 @@ namespace Test_EJ7
             calendario.Titulo = tituloEsperado;
             agenda.ModificarCalendario(calendario);
 
-            //Assert.AreEqual(agenda.ToStrin);
         }
 
         [TestMethod]
@@ -65,6 +64,50 @@ namespace Test_EJ7
             calendario.agregarEvento(evento);
 
             CollectionAssert.Contains(calendario.ObtenerTodos(), evento);
+        }
+
+        [TestMethod]
+        public void ModificarEvento()
+        {
+            var evento = new Evento("primer evento", DateTime.Now, 2, Evento.Frecuencia.UnicaVez);
+
+            var calendario = new Calendario("mi primer calendario", DateTime.Now);
+            calendario.agregarEvento(evento);
+            int id = evento.IdEvento;
+            string tituloEsperado = "titulo modificado";
+            evento.Titulo = tituloEsperado;
+            calendario.modificarEvento(evento);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IdNegativoException))]
+        public void ExcepcionIdCalendario()
+        {
+            var calendario = new Calendario("mi primer calendario", DateTime.Now);
+            calendario.ObtenerPorId(-1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FechaIncorrectaException))]
+        public void ExcepcionFechaIncorrecta()
+        {
+            var evento = new Evento("primer evento", new DateTime(1920, 1, 1), 2, Evento.Frecuencia.UnicaVez);
+
+            var calendario = new Calendario("mi primer calendario", DateTime.Now);
+            calendario.agregarEvento(evento);
+        }
+
+        [TestMethod]
+        public void ObtenerEventosPorDiaSemana()
+        {
+            var evento = new Evento("primer evento", new DateTime(2016, 11, 19), 2, Evento.Frecuencia.Semanal);
+
+            var calendario = new Calendario("mi primer calendario", DateTime.Now);
+            calendario.agregarEvento(evento);
+
+            var resultado = calendario.ObtenerPorDiaSemana((int)DayOfWeek.Saturday);
+
+            CollectionAssert.Contains(resultado, evento);
         }
     }
 }

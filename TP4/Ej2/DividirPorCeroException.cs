@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ej2
 {
+    /// <summary>
+    /// Exepcion que se lanza ante una division por cero
+    /// </summary>
     public class DividirPorCeroException : Exception
     {
         

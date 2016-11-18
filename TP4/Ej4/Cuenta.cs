@@ -33,6 +33,10 @@ namespace Ej4
             get { return this.iAcuerdo; }
         }
 
+        /// <summary>
+        /// Permite acreditar saldo a la cuenta, este debe ser mayor a cero
+        /// </summary>
+        /// <param name="pSaldo"></param>
         public void AcreditarSaldo(double pSaldo)
         {
             if (pSaldo <= 0)
@@ -42,8 +46,16 @@ namespace Ej4
             iSaldo = iSaldo + pSaldo;
         }
 
+        /// <summary>
+        /// Permite debitar saldo de la cuenta, este debe ser mayor a cero,
+        /// debe ser menor o igual al saldo disponible y debe cumplir con el acuerdo
+        /// </summary>
+        /// <param name="pSaldo"></param>
         public void DebitarSaldo(double pSaldo)
         {
+            if (Saldo <= 0) {
+                throw new SaldoNegativoNuloException("El sado que desea retirar es nulo o negativo");
+            }
             if (iSaldo <= pSaldo)
             {
                 throw new SaldoInsuficienteException("No posee saldo suficiente para realizar la extraccion");
