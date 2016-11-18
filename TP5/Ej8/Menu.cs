@@ -26,12 +26,14 @@ namespace Ej8
         private void aBMUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ABMUsuario abm = new ABMUsuario(rep);
+            abm.MdiParent = this;
             abm.Show();
         }
 
         private void metodosDeOrdenamientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Ordenamiento ord = new Ordenamiento(rep);
+            ord.MdiParent = this;
             ord.Show();
         }
     }

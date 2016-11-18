@@ -38,6 +38,8 @@
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.table = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +123,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(279, 283);
+            this.btnSalir.Location = new System.Drawing.Point(277, 227);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
@@ -129,11 +131,21 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // table
+            // 
+            this.table.AllowUserToOrderColumns = true;
+            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table.Location = new System.Drawing.Point(12, 282);
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(433, 130);
+            this.table.TabIndex = 10;
+            // 
             // ABMUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 331);
+            this.ClientSize = new System.Drawing.Size(463, 424);
+            this.Controls.Add(this.table);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtCorreoElectronico);
             this.Controls.Add(this.txtNombreCompleto);
@@ -146,6 +158,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ABMUsuario";
             this.Text = "ABMUsuario";
+            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +176,6 @@
         private System.Windows.Forms.TextBox txtNombreCompleto;
         private System.Windows.Forms.TextBox txtCorreoElectronico;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridView table;
     }
 }

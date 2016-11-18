@@ -19,6 +19,7 @@ namespace Ej8
             btnactualizar.Enabled = false;
             btnEliminar.Enabled = false;
             rep = prep;
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace Ej8
             us.NombreCompleto = txtNombreCompleto.Text;
             us.CorreoElectronico = txtCorreoElectronico.Text;
             rep.Agregar(us);
-            MessageBox.Show("Se guardo correctamente el nuevo usuario");
+            table.DataSource = rep.ObtenerTodos(); 
             txtCodigo.Text = "";
             txtNombreCompleto.Text = "";
             txtCorreoElectronico.Text = "";
@@ -43,7 +44,8 @@ namespace Ej8
             us.NombreCompleto = txtNombreCompleto.Text;
             us.CorreoElectronico = txtCorreoElectronico.Text;
             rep.Actualizar(us);
-            MessageBox.Show("Se actualizo correctamente el nuevo usuario");
+            table.DataSource = rep.ObtenerTodos();
+
             txtCodigo.Text = "";
             txtNombreCompleto.Text = "";
             txtCorreoElectronico.Text = "";
@@ -52,15 +54,13 @@ namespace Ej8
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
-
-            
-
             Usuario us = rep.ObtenerPorCodigo(txtCodigo.Text);
             if (us != null) { 
 
                 txtNombreCompleto.Text = us.NombreCompleto;
                 txtCorreoElectronico.Text = us.CorreoElectronico;
                 btnactualizar.Enabled = true;
+                btnGuardar.Enabled = false;
             }   
                 
             else
@@ -75,7 +75,8 @@ namespace Ej8
             {
                            
             rep.Eliminar(txtCodigo.Text);
-            MessageBox.Show("Se elimino correctamente el nuevo usuario");
+                table.DataSource = rep.ObtenerTodos();
+             
             txtCodigo.Text = "";
             txtNombreCompleto.Text = "";
             txtCorreoElectronico.Text = "";
