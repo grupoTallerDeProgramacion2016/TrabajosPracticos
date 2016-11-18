@@ -20,7 +20,7 @@ namespace Ej7
             this.iEncriptadores.Add(encriptador.Nombre, encriptador);
             encriptador = new EncriptadorCesar(3);
             this.iEncriptadores.Add(encriptador.Nombre, encriptador);
-            encriptador = new InvertirCadena("");
+            encriptador = new InvertirCadena();
             this.iEncriptadores.Add(encriptador.Nombre, encriptador);
         }
 

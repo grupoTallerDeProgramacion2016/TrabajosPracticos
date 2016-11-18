@@ -8,7 +8,7 @@ namespace Ej7
 {
     class EncriptadorNulo : Encriptador
     {
-        public EncriptadorNulo() : base("Null")
+        public EncriptadorNulo() : base("Nulo")
         {
 
         }

@@ -5,10 +5,8 @@
     /// </summary>
     public class InvertirCadena : Encriptador
     {
-        private string iCadena;
-        public InvertirCadena(string pCadena) : base("")
+        public InvertirCadena() : base("InvertirCadena")
         {
-            iCadena = pCadena;
         }
 
         public override string Encriptar(string pCadena)

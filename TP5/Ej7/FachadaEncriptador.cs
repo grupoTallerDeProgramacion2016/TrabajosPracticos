@@ -6,32 +6,36 @@ namespace Ej7
     {
         FabricaEncriptadores fabrica = FabricaEncriptadores.Instancia;
 
-        public IEncriptador obtenerCesar()
+        /// <summary>
+        /// Encripta el texto ingresado con el encriptador indicado con su nombre
+        /// </summary>
+        /// <param name="pNombreEncriptador"></param>
+        /// <param name="pCadena"></param>
+        /// <returns></returns>
+        public string Encriptar(string pNombreEncriptador, string pCadena)
         {
             FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
-            return fEncriptador.GetEncriptador("cesar");
-        }
-        public IEncriptador obtenerNulo()
-        {
-            FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
-            return fEncriptador.GetEncriptador("nulo");
-        }
-        public IEncriptador obtenerAes()
-        {
-            FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
-            return fEncriptador.GetEncriptador("aes");
+            var encriptador = fEncriptador.GetEncriptador(pNombreEncriptador);
+            return encriptador.Encriptar(pCadena);
         }
 
-        public IEncriptador obtenerInvertirCadena()
+        /// <summary>
+        /// Encripta el texto ingresado con el encriptador indicado con su nombre
+        /// </summary>
+        /// <param name="pNombreEncriptador"></param>
+        /// <param name="pCadena"></param>
+        /// <returns></returns>
+        public string Desencriptar(string pNombreEncriptador, string pCadena)
         {
             FabricaEncriptadores fEncriptador = FabricaEncriptadores.Instancia;
-            return fEncriptador.GetEncriptador("InvertirCadena");
-        }
-        public IEncriptador Encriptador(string pNombre)
-        {
-            return fabrica.GetEncriptador(pNombre);
+            var encriptador = fEncriptador.GetEncriptador(pNombreEncriptador);
+            return encriptador.Desencriptar(pCadena);
         }
 
+        /// <summary>
+        /// Devuelve una lista de strings con los nombres de todos los encriptadores disponibles
+        /// </summary>
+        /// <returns></returns>
         public List<string> ObtenerEncriptadoresDisponibles()
         {
             return fabrica.ObtenerEncriptadoresDisponibles();
