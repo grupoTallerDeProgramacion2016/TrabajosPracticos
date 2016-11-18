@@ -10,29 +10,16 @@ namespace Ej1
             InitializeComponent();
         }
 
-        private void Boton1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Este metodo imprime un mensaje cuando cualquiera de los botones es presionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BotonPresionado(object sender, EventArgs e)
         {
-            MessageBox.Show("Se ha clickeado el Boton 1");
+            var botonPresionado = sender as Button;
+            MessageBox.Show("Se ha presionado el " + botonPresionado.Text);
         }
 
-        private void Boton2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Se ha clickeado el Boton 2");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Se ha clickeado el Boton 3");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Se ha clickeado el Boton 4");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Se ha clickeado el Boton 5");
-        }
     }
 }

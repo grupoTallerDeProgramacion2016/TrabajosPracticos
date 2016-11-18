@@ -124,8 +124,8 @@
             this.Controls.Add(this.btnRetirar);
             this.Controls.Add(this.btnDepositar);
             this.Name = "ManejoCuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManejoCuenta";
-            this.Load += new System.EventHandler(this.ManejoCuenta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

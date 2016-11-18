@@ -67,14 +67,15 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(535, 184);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCajaAhorro);
             this.Controls.Add(this.btnCuentaCorriente);
             this.IsMdiContainer = true;
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

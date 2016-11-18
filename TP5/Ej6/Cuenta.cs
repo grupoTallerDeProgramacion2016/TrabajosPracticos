@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ej6
+﻿namespace Ej6
 {
     public class Cuenta
     {
@@ -46,11 +40,12 @@ namespace Ej6
         {
             if (iSaldo <= pSaldo)
             {
-                throw new SaldoInsuficienteException("No posee saldo suficiente para realizar la extraccion");
+                throw new SaldoInsuficienteException("No posee saldo suficiente en su cuenta");
             }
             if (pSaldo >= iAcuerdo)
             {
-                throw new AcuerdoSuperadoException("El saldo que desea retirar supera el acuerdo de la cuenta");
+                throw new AcuerdoSuperadoException("El saldo que desea retirar supera el acuerdo de la cuenta que es de: " +
+                                                    this.iAcuerdo.ToString());
             }
             iSaldo -= pSaldo;
 

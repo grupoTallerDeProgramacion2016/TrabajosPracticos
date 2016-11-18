@@ -10,14 +10,20 @@ namespace Ej2
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Este metodo se ejecuta al presionar el boton y muestra el estado de 
+        /// todos los componentes que se muestran en pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("El estado del " + radioButton1.Text + " es " + radioButton1.Checked + " El estado del " + radioButton2.Text + " es " + radioButton2.Checked + " El estado del " + radioButton3.Text + " es " + radioButton3.Checked + " El estado del " + checkBox1.Text + " es " + checkBox1.Checked + " El estado del " + radioButton2.Text + " es " + radioButton2.Checked);
+            MessageBox.Show(" El estado del " + radioButton1.Text + " es " + radioButton1.Checked + "\n" +
+                            " El estado del " + radioButton2.Text + " es " + radioButton2.Checked + "\n" +
+                            " El estado del " + radioButton3.Text + " es " + radioButton3.Checked + "\n" +
+                            " El estado del " + checkBox1.Text + " es " + checkBox1.Checked + "\n" +
+                            " El estado del " + checkBox2.Text + " es " + checkBox2.Checked);
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
