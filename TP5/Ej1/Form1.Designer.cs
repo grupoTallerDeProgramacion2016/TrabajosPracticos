@@ -94,6 +94,7 @@
             this.Controls.Add(this.boton2);
             this.Controls.Add(this.boton1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
         }

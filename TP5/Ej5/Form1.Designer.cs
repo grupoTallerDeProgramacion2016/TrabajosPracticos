@@ -41,11 +41,14 @@
             this.pYCirculo = new System.Windows.Forms.TextBox();
             this.pXCirculo = new System.Windows.Forms.TextBox();
             this.groupBoxCirculo = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pRadio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBoxTriangulo = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.trianguloPy3 = new System.Windows.Forms.TextBox();
             this.trianguloPx3 = new System.Windows.Forms.TextBox();
             this.trianguloPy2 = new System.Windows.Forms.TextBox();
@@ -55,9 +58,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxFigura = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBoxCirculo.SuspendLayout();
             this.groupBoxTriangulo.SuspendLayout();
@@ -193,6 +193,16 @@
             this.groupBoxCirculo.TabStop = false;
             this.groupBoxCirculo.Text = "Circulo";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(45, 76);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "y";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -250,6 +260,26 @@
             this.groupBoxTriangulo.TabIndex = 18;
             this.groupBoxTriangulo.TabStop = false;
             this.groupBoxTriangulo.Text = "Triángulo";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(198, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(12, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "y";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(137, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(12, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "x";
             // 
             // trianguloPy3
             // 
@@ -326,36 +356,6 @@
             this.groupBoxFigura.TabStop = false;
             this.groupBoxFigura.Text = "Figura";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(45, 76);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(12, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "y";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(137, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(12, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "x";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(198, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(12, 13);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "y";
-            // 
             // Form1
             // 
             this.AcceptButton = this.hacerAritmetica;
@@ -371,6 +371,7 @@
             this.Controls.Add(this.groupBoxCirculo);
             this.Controls.Add(this.groupBoxFigura);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
