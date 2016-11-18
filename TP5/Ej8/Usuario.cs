@@ -8,6 +8,17 @@ namespace Ej8
         string iNombreCompleto;
         string iCorreoElectronico;
 
+        public Usuario()
+        {
+        }
+
+        public Usuario(string pCodigo, string pNombreCompleto, string pCorreoElectronico)
+        {
+            this.iCodigo = pCodigo;
+            this.iNombreCompleto = pNombreCompleto;
+            this.iCorreoElectronico = pCorreoElectronico;
+        }
+
         public string Codigo { get { return this.iCodigo; } set { this.iCodigo = value; } }
         public string NombreCompleto { get { return this.iNombreCompleto; } set { this.iNombreCompleto = value; } }
         public string CorreoElectronico { get { return this.iCorreoElectronico; } set { this.iCorreoElectronico = value; } }
