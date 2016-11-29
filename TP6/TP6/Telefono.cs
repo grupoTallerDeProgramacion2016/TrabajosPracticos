@@ -1,4 +1,4 @@
-﻿namespace TP6
+﻿namespace Ej1
 {
     class Telefono
     {
