@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A14EC7B8-1537-412E-8DE3-0EE0400573E3}</ProjectGuid>
+    <ProjectGuid>{C089AF15-9B8F-496D-9F4F-CBB29357BE6D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ej2</RootNamespace>
@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\EntityFramework\AccountManagerDbContext.cs" />
+    <Compile Include="DAL\EntityFramework\AccountRepository.cs" />
+    <Compile Include="DAL\EntityFramework\ClientRepository.cs" />
+    <Compile Include="DAL\EntityFramework\DatabaseInitializationStrategy.cs" />
+    <Compile Include="DAL\EntityFramework\Mappings\AccountMap.cs" />
+    <Compile Include="DAL\EntityFramework\Mappings\AccountMovementMap.cs" />
+    <Compile Include="DAL\EntityFramework\Mappings\ClientMap.cs" />
+    <Compile Include="DAL\EntityFramework\Repository.cs" />
+    <Compile Include="DAL\EntityFramework\UnitOfWork.cs" />
     <Compile Include="DAL\IAccountRepository.cs" />
     <Compile Include="DAL\IClientRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
@@ -52,6 +61,7 @@
     <Compile Include="Domain\Client.cs" />
     <Compile Include="Domain\Document.cs" />
     <Compile Include="Domain\DocumentType.cs" />
+    <Compile Include="Logic\Fachada.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,7 +69,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\EntityFramework\" />
+    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
