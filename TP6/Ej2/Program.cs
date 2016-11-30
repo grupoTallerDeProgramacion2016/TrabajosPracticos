@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ej2.UI;
 
 namespace Ej2
 {
@@ -10,6 +6,9 @@ namespace Ej2
     {
         static void Main(string[] args)
         {
+
+            var aplicacion = new MenuAdmin();
+            aplicacion.Show();
         }
     }
 }

@@ -144,28 +144,16 @@ namespace Ej2.Logic
             }
         }
 
-        public void CrearCliente(String pNumDocument, DocumentType pType, String pFirstName, String pLastName)
+        public void CrearCliente(Client pCliente)
         {
             using (var dbContext = new AccountManagerDbContext())
             {
                 using (var uof = new UnitOfWork(dbContext))
                 {
-                    var documento = new Document
-                    {
-                        Number = pNumDocument,
-                        Type = pType
-                    };
-
-                    var cliente = new Client
-                    {
-                        FirstName = pFirstName,
-                        LastName = pLastName,
-                        Document = documento
-                    };
 
                     try
                     {
-                        uof.ClientRepository.Add(cliente);
+                        uof.ClientRepository.Add(pCliente);
                         uof.Complete();
                     }
                     catch (Exception)
