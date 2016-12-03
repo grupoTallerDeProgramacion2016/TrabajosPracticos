@@ -1,4 +1,5 @@
 ﻿using Ej2.Domain;
+using Ej2.DTO;
 using Ej2.Logic;
 using System;
 using System.Windows.Forms;
@@ -7,51 +8,88 @@ namespace Ej2.UI
 {
     public partial class VistaCliente : Form
     {
-        private Client iCliente;
-        private Fachada fachada;
+        private ClientDTO iCliente;
+        private Fachada iFachada;
 
-        public VistaCliente(Client pCliente = null)
+        public VistaCliente(Fachada pFachada, ClientDTO pCliente = null)
         {
             InitializeComponent();
+            this.iFachada = pFachada;
             this.iCliente = pCliente;
-            this.button_Guardar.Enabled = false;
             this.textBox_Id.Enabled = false;
+            this.comboBox_TDocumento.SelectedIndex = 1;
             MostrarCliente();
         }
 
+        /// <summary>
+        /// Carga los datos del cliente en la pantalla
+        /// </summary>
         private void MostrarCliente()
         {
-            if (this.iCliente != null)
+            if (this.iCliente == null)
             {
-                this.textBox_Id.Text = this.iCliente.Id.ToString();
-                this.textBox_Nombre.Text = this.iCliente.FirstName;
-                this.textBox_Apellido.Text = this.iCliente.LastName;
-                this.textBox_NDocumento.Text = this.iCliente.Document.Number;
-                this.comboBox_TDocumento.SelectedIndex = this.iCliente.Document.Type.GetHashCode();
+                this.iCliente = new ClientDTO();
             }
             else
             {
-                this.iCliente = new Domain.Client();
+                this.textBox_Id.Text = this.iCliente.Id.ToString();
             }
+            this.textBox_Nombre.Text = this.iCliente.FirstName;
+            this.textBox_Apellido.Text = this.iCliente.LastName;
+            this.textBox_NDocumento.Text = this.iCliente.DocumentNumber;
+            this.comboBox_TDocumento.SelectedIndex = this.iCliente.DocumentType.GetHashCode();
         }
 
+        /// <summary>
+        /// Guarda los datos del cliente, o los crea si es que no posee id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Guardar_Click(object sender, EventArgs e)
         {
             this.iCliente.FirstName = this.textBox_Nombre.Text;
             this.iCliente.LastName = this.textBox_Apellido.Text;
-            this.iCliente.Document.Number = this.textBox_NDocumento.Text;
-            this.iCliente.Document.Type = (DocumentType)this.comboBox_TDocumento.SelectedIndex;
+            this.iCliente.DocumentNumber = this.textBox_NDocumento.Text;
+            this.iCliente.DocumentType = (DocumentType)this.comboBox_TDocumento.SelectedIndex;
 
-            if (this.iCliente == null)
+            if (this.iCliente.Id > 0)
             {
-                fachada.CrearCliente(this.iCliente);
+                try
+                {
+                    iFachada.Cliente.ModificarCliente(this.iCliente);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ups! ocurrio un error!" +
+                                    ex.Message);
+                }
             }
             else
             {
-                fachada.ModificarCliente(this.iCliente);
+                try
+                {
+                    iFachada.Cliente.CrearCliente(this.iCliente);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ups! ocurrio un error!" +
+                                    ex.Message);
+                }
+
             }
 
-            this.Close();
+        }
+
+        /// <summary>
+        /// Sale de la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_cancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

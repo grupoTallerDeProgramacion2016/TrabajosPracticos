@@ -2,7 +2,7 @@
 
 namespace Ej2.DAL
 {
-    interface IRepository<TEntity>
+    public interface IRepository<TEntity>
         where TEntity : class
     {
         void Add(TEntity pEntity);

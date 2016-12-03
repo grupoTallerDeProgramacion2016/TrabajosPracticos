@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace Ej2.DAL.EntityFramework
 {
-    class AccountManagerDbContext : DbContext
+    public class AccountManagerDbContext : DbContext
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<Account> Accounts { get; set; }

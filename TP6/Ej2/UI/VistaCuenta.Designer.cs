@@ -33,15 +33,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.textBox_Id = new System.Windows.Forms.TextBox();
+            this.textBox_Name = new System.Windows.Forms.TextBox();
+            this.textBox_Descubierto = new System.Windows.Forms.TextBox();
+            this.textBox_Cliente = new System.Windows.Forms.TextBox();
+            this.dataGridView_UltimosMovimientos = new System.Windows.Forms.DataGridView();
+            this.button_Cancelar = new System.Windows.Forms.Button();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_Seleccionar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_UltimosMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,90 +89,96 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Ultimos movimientos";
             // 
-            // textBox1
+            // textBox_Id
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox_Id.Location = new System.Drawing.Point(173, 35);
+            this.textBox_Id.Name = "textBox_Id";
+            this.textBox_Id.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Id.TabIndex = 1;
             // 
-            // textBox2
+            // textBox_Name
             // 
-            this.textBox2.Location = new System.Drawing.Point(173, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox_Name.Location = new System.Drawing.Point(173, 75);
+            this.textBox_Name.Name = "textBox_Name";
+            this.textBox_Name.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Name.TabIndex = 1;
             // 
-            // textBox3
+            // textBox_Descubierto
             // 
-            this.textBox3.Location = new System.Drawing.Point(173, 115);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
+            this.textBox_Descubierto.Location = new System.Drawing.Point(173, 115);
+            this.textBox_Descubierto.Name = "textBox_Descubierto";
+            this.textBox_Descubierto.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Descubierto.TabIndex = 1;
             // 
-            // textBox4
+            // textBox_Cliente
             // 
-            this.textBox4.Location = new System.Drawing.Point(173, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 1;
+            this.textBox_Cliente.Location = new System.Drawing.Point(173, 155);
+            this.textBox_Cliente.Name = "textBox_Cliente";
+            this.textBox_Cliente.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Cliente.TabIndex = 1;
             // 
-            // dataGridView1
+            // dataGridView_UltimosMovimientos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(173, 198);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(315, 146);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView_UltimosMovimientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_UltimosMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_UltimosMovimientos.Location = new System.Drawing.Point(173, 198);
+            this.dataGridView_UltimosMovimientos.MultiSelect = false;
+            this.dataGridView_UltimosMovimientos.Name = "dataGridView_UltimosMovimientos";
+            this.dataGridView_UltimosMovimientos.ReadOnly = true;
+            this.dataGridView_UltimosMovimientos.Size = new System.Drawing.Size(469, 146);
+            this.dataGridView_UltimosMovimientos.TabIndex = 2;
             // 
-            // button1
+            // button_Cancelar
             // 
-            this.button1.Location = new System.Drawing.Point(47, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Cancelar.Location = new System.Drawing.Point(47, 379);
+            this.button_Cancelar.Name = "button_Cancelar";
+            this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.button_Cancelar.TabIndex = 3;
+            this.button_Cancelar.Text = "Cancelar";
+            this.button_Cancelar.UseVisualStyleBackColor = true;
+            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
             // 
-            // button2
+            // button_Guardar
             // 
-            this.button2.Location = new System.Drawing.Point(413, 379);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_Guardar.Location = new System.Drawing.Point(567, 379);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.button_Guardar.TabIndex = 3;
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
             // 
-            // button3
+            // button_Seleccionar
             // 
-            this.button3.Location = new System.Drawing.Point(305, 153);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Seleccionar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_Seleccionar.Location = new System.Drawing.Point(305, 153);
+            this.button_Seleccionar.Name = "button_Seleccionar";
+            this.button_Seleccionar.Size = new System.Drawing.Size(75, 23);
+            this.button_Seleccionar.TabIndex = 4;
+            this.button_Seleccionar.Text = "Seleccionar";
+            this.button_Seleccionar.UseVisualStyleBackColor = true;
             // 
             // VistaCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 422);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(665, 421);
+            this.Controls.Add(this.button_Seleccionar);
+            this.Controls.Add(this.button_Guardar);
+            this.Controls.Add(this.button_Cancelar);
+            this.Controls.Add(this.dataGridView_UltimosMovimientos);
+            this.Controls.Add(this.textBox_Cliente);
+            this.Controls.Add(this.textBox_Descubierto);
+            this.Controls.Add(this.textBox_Name);
+            this.Controls.Add(this.textBox_Id);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "VistaCuenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaCuenta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_UltimosMovimientos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,13 +191,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox_Id;
+        private System.Windows.Forms.TextBox textBox_Name;
+        private System.Windows.Forms.TextBox textBox_Descubierto;
+        private System.Windows.Forms.TextBox textBox_Cliente;
+        private System.Windows.Forms.DataGridView dataGridView_UltimosMovimientos;
+        private System.Windows.Forms.Button button_Cancelar;
+        private System.Windows.Forms.Button button_Guardar;
+        private System.Windows.Forms.Button button_Seleccionar;
     }
 }

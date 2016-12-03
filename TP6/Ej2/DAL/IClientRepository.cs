@@ -2,7 +2,7 @@
 
 namespace Ej2.DAL
 {
-    interface IClientRepository : IRepository<Client>
+    public interface IClientRepository : IRepository<Client>
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Ej2.UI
 {
-    partial class Listado
+    partial class PantallaMovimientos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,67 +29,59 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox_Cantidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_Actualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 45);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 195);
+            this.dataGridView1.Size = new System.Drawing.Size(517, 269);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // textBox_Cantidad
+            // 
+            this.textBox_Cantidad.Location = new System.Drawing.Point(143, 15);
+            this.textBox_Cantidad.Name = "textBox_Cantidad";
+            this.textBox_Cantidad.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Cantidad.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 29);
+            this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Id";
+            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "cantidad de movimientos";
             // 
-            // textBox1
+            // button_Actualizar
             // 
-            this.textBox1.Location = new System.Drawing.Point(45, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 20);
-            this.textBox1.TabIndex = 2;
+            this.button_Actualizar.Location = new System.Drawing.Point(258, 12);
+            this.button_Actualizar.Name = "button_Actualizar";
+            this.button_Actualizar.Size = new System.Drawing.Size(75, 23);
+            this.button_Actualizar.TabIndex = 3;
+            this.button_Actualizar.Text = "Actualizar";
+            this.button_Actualizar.UseVisualStyleBackColor = true;
+            this.button_Actualizar.Click += new System.EventHandler(this.button_Actualizar_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(379, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(483, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Listado
+            // PantallaMovimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 290);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(542, 325);
+            this.Controls.Add(this.button_Actualizar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_Cantidad);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Listado";
-            this.Text = "Listado";
+            this.Name = "PantallaMovimientos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PantallaMovimiento";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,9 +91,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox_Cantidad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_Actualizar;
     }
 }

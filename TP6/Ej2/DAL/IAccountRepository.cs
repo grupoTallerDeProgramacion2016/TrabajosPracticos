@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Ej2.DAL
 {
-    interface IAccountRepository : IRepository<Account>
+    public interface IAccountRepository : IRepository<Account>
     {
         double GetAccountBalance(Account pAccount);
         IEnumerable<Account> GetOverdrawnAccounts();

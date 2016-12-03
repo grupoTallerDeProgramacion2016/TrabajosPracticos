@@ -95,6 +95,7 @@
             this.button_cancelar.TabIndex = 1;
             this.button_cancelar.Text = "Cancelar";
             this.button_cancelar.UseVisualStyleBackColor = true;
+            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
             // 
             // button_Guardar
             // 
@@ -165,6 +166,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "VistaCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaCliente";
             this.ResumeLayout(false);
             this.PerformLayout();
